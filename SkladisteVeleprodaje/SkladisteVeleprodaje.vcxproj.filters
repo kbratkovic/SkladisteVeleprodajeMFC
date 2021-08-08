@@ -42,6 +42,9 @@
     <ClInclude Include="DlgNoviArtikl.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="DlgArtikli.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SkladisteVeleprodaje.cpp">
@@ -60,6 +63,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="DlgNoviArtikl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgArtikli.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

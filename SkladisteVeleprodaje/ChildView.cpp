@@ -8,6 +8,7 @@
 #include "ChildView.h"
 #include "DlgNoviKlijent.h"
 #include "DlgNoviArtikl.h"
+#include "DlgArtikli.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -29,6 +30,7 @@ BEGIN_MESSAGE_MAP(CChildView, CWnd)
 	//ON_WM_PAINT() NAKNADNO IZBRISATI !!!!!!!!!!!!!!
 	ON_COMMAND(ID_KLIJENTI_NOVIKLIJENT, &CChildView::OnKlijentiNoviklijent)
 	ON_COMMAND(ID_ARTIKLI_NOVIARTIKL, &CChildView::OnArtikliNoviartikl)
+	ON_COMMAND(ID_ARTIKLI_ARTIKLI, &CChildView::OnArtikliSviArtikli)
 END_MESSAGE_MAP()
 
 
@@ -65,14 +67,34 @@ BOOL CChildView::PreCreateWindow(CREATESTRUCT& cs)
 void CChildView::OnKlijentiNoviklijent()
 {
 	DlgNoviKlijent dlgKlijent;
-	dlgKlijent.DoModal();
-	// TODO: Add your command handler code here
+	// send value
+	if (dlgKlijent.DoModal() == IDOK)
+	{
+		//receive value
+		Invalidate();
+	}
 }
 
 
 void CChildView::OnArtikliNoviartikl()
 {
 	DlgNoviArtikl dlgArtikl;
-	dlgArtikl.DoModal();
-	// TODO: Add your command handler code here
+	// send value
+	if (dlgArtikl.DoModal() == IDOK)
+	{
+		//receive value
+		Invalidate();
+	}
+}
+
+
+void CChildView::OnArtikliSviArtikli()
+{
+	DlgArtikli dlgArtikli;
+	// send value
+	if (dlgArtikli.DoModal() == IDOK)
+	{
+		//receive value
+		Invalidate();
+	}
 }
