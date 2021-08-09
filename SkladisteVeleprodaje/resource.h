@@ -30,6 +30,12 @@
 #define ID_POMO32778                    32778
 #define ID_PROBNAPORUKA                 32779
 
+#define IDS_STRING_ID                     200
+#define IDS_STRING_NAZIV_ARTIKLA          201
+#define IDS_STRING_JEDINICA               202
+#define IDS_STRING_STANJE                 203
+#define IDS_STRING_CIJENA                 204
+
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED

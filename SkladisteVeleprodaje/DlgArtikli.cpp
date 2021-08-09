@@ -39,34 +39,39 @@ BOOL DlgArtikli::OnInitDialog()
 {
 	CDialogEx::OnInitDialog();
 
-	CString str;
+	CString s;
 
 	//RcSetArtikli = new ArtikliSet;
 	ArtikliSet RcSetArtikli;
 	
 	RcSetArtikli.Open();
 	
-	ListCtrl.InsertColumn(0, _T("ID"), LVCFMT_CENTER, 60);
-	ListCtrl.InsertColumn(1, _T("Naziv"), LVCFMT_CENTER, 349);
-	ListCtrl.InsertColumn(2, _T("Jedinica"), LVCFMT_CENTER, 100);
-	ListCtrl.InsertColumn(3, _T("Stanje"), LVCFMT_CENTER, 100);
-	ListCtrl.InsertColumn(4, _T("Cijena VPC"), LVCFMT_CENTER, 120);
+	s.LoadString(IDS_STRING_ID);
+	ListCtrl.InsertColumn(0, s, LVCFMT_LEFT, 60);
+	s.LoadString(IDS_STRING_NAZIV_ARTIKLA);
+	ListCtrl.InsertColumn(1, s, LVCFMT_CENTER, 349);
+	s.LoadString(IDS_STRING_JEDINICA);
+	ListCtrl.InsertColumn(2, s, LVCFMT_CENTER, 100);
+	s.LoadString(IDS_STRING_STANJE);
+	ListCtrl.InsertColumn(3, s, LVCFMT_CENTER, 100);
+	s.LoadString(IDS_STRING_CIJENA);
+	ListCtrl.InsertColumn(4, s, LVCFMT_CENTER, 120);
 
 	ListCtrl.SetExtendedStyle(LVS_EX_FULLROWSELECT);
 
 	while (!RcSetArtikli.IsEOF())
 	{
-		str.Format(_T("%d"), RcSetArtikli.m_ID);
-		const int index = ListCtrl.InsertItem(0, str);
+		s.Format(_T("%d"), RcSetArtikli.m_ID);
+		const int index = ListCtrl.InsertItem(0, s);
 
 		ListCtrl.SetItemText(index, 1, RcSetArtikli.m_nazivArtikla);
 		ListCtrl.SetItemText(index, 2, RcSetArtikli.m_jedinica);
 
-		str.Format(_T("%d"), RcSetArtikli.m_stanje);
-		ListCtrl.SetItemText(index, 3, str);
+		s.Format(_T("%d"), RcSetArtikli.m_stanje);
+		ListCtrl.SetItemText(index, 3, s);
 
-		str.Format(_T("%.2f"), RcSetArtikli.m_cijena);
-		ListCtrl.SetItemText(index, 4, str);
+		s.Format(_T("%.2f"), RcSetArtikli.m_cijena);
+		ListCtrl.SetItemText(index, 4, s);
 
 		RcSetArtikli.MoveNext();
 	}
