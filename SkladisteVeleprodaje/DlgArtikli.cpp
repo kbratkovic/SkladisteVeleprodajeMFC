@@ -29,6 +29,7 @@ void DlgArtikli::DoDataExchange(CDataExchange* pDX)
 
 
 BEGIN_MESSAGE_MAP(DlgArtikli, CDialogEx)
+	ON_BN_CLICKED(IDB_DODAJ_NOVI_ARTIKL, &DlgArtikli::OnBnClickedDodajNoviArtikl)
 END_MESSAGE_MAP()
 
 
@@ -46,14 +47,18 @@ BOOL DlgArtikli::OnInitDialog()
 	
 	s.LoadString(IDS_STRING_ID);
 	ListCtrl.InsertColumn(0, s, LVCFMT_CENTER, 60);
+
+	s.LoadString(IDS_STRING_SIFRA);
+	ListCtrl.InsertColumn(1, s, LVCFMT_CENTER, 100);
+
 	s.LoadString(IDS_STRING_NAZIV_ARTIKLA);
-	ListCtrl.InsertColumn(1, s, LVCFMT_CENTER, 349);
+	ListCtrl.InsertColumn(2, s, LVCFMT_CENTER, 349);
 	s.LoadString(IDS_STRING_JEDINICA);
-	ListCtrl.InsertColumn(2, s, LVCFMT_CENTER, 100);
-	s.LoadString(IDS_STRING_STANJE);
 	ListCtrl.InsertColumn(3, s, LVCFMT_CENTER, 100);
+	s.LoadString(IDS_STRING_STANJE);
+	ListCtrl.InsertColumn(4, s, LVCFMT_CENTER, 100);
 	s.LoadString(IDS_STRING_CIJENA);
-	ListCtrl.InsertColumn(4, s, LVCFMT_CENTER, 120);
+	ListCtrl.InsertColumn(5, s, LVCFMT_CENTER, 120);
 
 
 	while (!RcSetArtikli.IsEOF())
@@ -62,12 +67,16 @@ BOOL DlgArtikli::OnInitDialog()
 
 		s.Format(_T("%d"), RcSetArtikli.m_rb);
 		ListCtrl.InsertItem(index, s);
-		ListCtrl.SetItemText(index, 1, RcSetArtikli.m_nazivArtikla);
-		ListCtrl.SetItemText(index, 2, RcSetArtikli.m_jedinica);
+
+		s.Format(_T("%d"), RcSetArtikli.m_sifra);
+		ListCtrl.SetItemText(index, 1, s);
+		
+		ListCtrl.SetItemText(index, 2, RcSetArtikli.m_nazivArtikla);
+		ListCtrl.SetItemText(index, 3, RcSetArtikli.m_jedinica);
 		s.Format(_T("%d"), RcSetArtikli.m_stanje);
-		ListCtrl.SetItemText(index, 3, s);
-		s.Format(_T("%.2f"), RcSetArtikli.m_cijena);
 		ListCtrl.SetItemText(index, 4, s);
+		s.Format(_T("%.2f"), RcSetArtikli.m_cijena);
+		ListCtrl.SetItemText(index, 5, s);
 
 		RcSetArtikli.MoveNext();
 	}
@@ -79,4 +88,12 @@ BOOL DlgArtikli::OnInitDialog()
 
 	return TRUE;  // return TRUE unless you set the focus to a control
 				  // EXCEPTION: OCX Property Pages should return FALSE
+}
+
+
+void DlgArtikli::OnBnClickedDodajNoviArtikl()
+{
+	DlgNoviArtikl dlgNoviArtikl;
+	dlgNoviArtikl.DoModal();
+	// TODO: Add your control notification handler code here
 }

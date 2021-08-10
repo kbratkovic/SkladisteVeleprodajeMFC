@@ -20,10 +20,11 @@ public:
 	// to support both Unicode and these conversions).
 
 	long m_rb;
+	long m_sifra;
 	CStringW m_nazivArtikla;
 	CStringW m_jedinica;
-	double m_cijena;
 	long m_stanje;
+	double m_cijena;
 
 	// Overrides
 		// Wizard generated virtual function overrides

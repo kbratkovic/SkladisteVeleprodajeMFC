@@ -13,6 +13,7 @@
 #define IDS_STRING_JEDINICA                     202
 #define IDS_STRING_STANJE                       203
 #define IDS_STRING_CIJENA                       204
+#define IDS_STRING_SIFRA                        205
 #define IDD_PODACI_O_KLIJENTIMA_NOVI_PODATAK    311
 #define IDD_PODACI_O_ARTIKLIMA_NOVI_PODATAK     313
 #define IDD_PODACI_O_ARTIKLIMA_PREGLED          319

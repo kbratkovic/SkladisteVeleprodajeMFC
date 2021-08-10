@@ -1,6 +1,7 @@
 #pragma once
 
 #include "ArtikliSet.h"
+#include "DlgNoviArtikl.h"
 
 // DlgArtikli dialog
 
@@ -25,4 +26,5 @@ protected:
 	DECLARE_MESSAGE_MAP()
 public:
 	virtual BOOL OnInitDialog();
+	afx_msg void OnBnClickedDodajNoviArtikl();
 };
