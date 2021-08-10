@@ -11,7 +11,7 @@ IMPLEMENT_DYNAMIC(ArtikliSet, CRecordset)
 
 ArtikliSet::ArtikliSet(CDatabase* pdb) : CRecordset(pdb)
 {
-	long m_ID = 0;
+	long m_rb = 0;
 	CStringW m_nazivArtikla = _T("");
 	CStringW m_jedinica = _T("");
 	CStringW m_cijena = _T("");
@@ -34,7 +34,7 @@ void ArtikliSet::DoFieldExchange(CFieldExchange* pFX)
 {
 	pFX->SetFieldType(CFieldExchange::outputColumn);
 
-	RFX_Long(pFX, _T("[ID]"), m_ID);
+	RFX_Long(pFX, _T("[ID]"), m_rb);
 	RFX_Text(pFX, _T("[nazivArtikla]"), m_nazivArtikla);
 	RFX_Text(pFX, _T("[jedinica]"), m_jedinica);
 	RFX_Double(pFX, _T("[cijena]"), m_cijena);

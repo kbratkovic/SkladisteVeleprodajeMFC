@@ -19,7 +19,7 @@ public:
 	// (Note: You must use an ODBC driver version that is version 3.5 or greater
 	// to support both Unicode and these conversions).
 
-	long m_ID;
+	long m_rb;
 	CStringW m_nazivArtikla;
 	CStringW m_jedinica;
 	double m_cijena;

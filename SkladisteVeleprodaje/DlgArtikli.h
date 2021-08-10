@@ -13,7 +13,6 @@ public:
 	virtual ~DlgArtikli();
 
 	CListCtrl ListCtrl;
-	ArtikliSet* RcSetArtikli;
 
 // Dialog Data
 #ifdef AFX_DESIGN_TIME
