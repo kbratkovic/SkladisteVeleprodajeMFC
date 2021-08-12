@@ -27,7 +27,6 @@ CChildView::~CChildView()
 
 
 BEGIN_MESSAGE_MAP(CChildView, CWnd)
-	//ON_WM_PAINT() NAKNADNO IZBRISATI !!!!!!!!!!!!!!
 	ON_COMMAND(ID_KLIJENTI_NOVIKLIJENT, &CChildView::OnKlijentiNoviklijent)
 	ON_COMMAND(ID_ARTIKLI_NOVIARTIKL, &CChildView::OnArtikliNoviartikl)
 	ON_COMMAND(ID_ARTIKLI_ARTIKLI, &CChildView::OnArtikliSviArtikli)
@@ -51,18 +50,6 @@ BOOL CChildView::PreCreateWindow(CREATESTRUCT& cs)
 }
 
 
-// NAKNADNO IZBRISATI !!!!!!!!!!!!!!
-//void CChildView::OnPaint() 
-//{
-//	CPaintDC dc(this); // device context for painting
-//	CRect rc;
-//	GetClientRect(&rc);
-//	dc.Ellipse(rc);
-//	// TODO: Add your message handler code here
-//	
-//	// Do not call CWnd::OnPaint() for painting messages
-//}
-
 
 void CChildView::OnKlijentiNoviklijent()
 {
@@ -78,9 +65,9 @@ void CChildView::OnKlijentiNoviklijent()
 
 void CChildView::OnArtikliNoviartikl()
 {
-	DlgNoviArtikl dlgArtikl;
+	DlgNoviArtikl dlgNoviArtikl;
 	// send value
-	if (dlgArtikl.DoModal() == IDOK)
+	if (dlgNoviArtikl.DoModal() == IDOK)
 	{
 		//receive value
 		Invalidate();

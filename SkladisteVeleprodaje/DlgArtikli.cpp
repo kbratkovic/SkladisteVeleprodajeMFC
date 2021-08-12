@@ -47,12 +47,10 @@ BOOL DlgArtikli::OnInitDialog()
 	
 	s.LoadString(IDS_STRING_ID);
 	ListCtrl.InsertColumn(0, s, LVCFMT_CENTER, 60);
-
 	s.LoadString(IDS_STRING_SIFRA);
 	ListCtrl.InsertColumn(1, s, LVCFMT_CENTER, 100);
-
 	s.LoadString(IDS_STRING_NAZIV_ARTIKLA);
-	ListCtrl.InsertColumn(2, s, LVCFMT_CENTER, 349);
+	ListCtrl.InsertColumn(2, s, LVCFMT_CENTER, 300);
 	s.LoadString(IDS_STRING_JEDINICA);
 	ListCtrl.InsertColumn(3, s, LVCFMT_CENTER, 100);
 	s.LoadString(IDS_STRING_STANJE);
@@ -67,12 +65,9 @@ BOOL DlgArtikli::OnInitDialog()
 
 		s.Format(_T("%d"), RcSetArtikli.m_rb);
 		ListCtrl.InsertItem(index, s);
-
-		s.Format(_T("%d"), RcSetArtikli.m_sifra);
-		ListCtrl.SetItemText(index, 1, s);
-		
+		ListCtrl.SetItemText(index, 1, RcSetArtikli.m_sifra);
 		ListCtrl.SetItemText(index, 2, RcSetArtikli.m_nazivArtikla);
-		ListCtrl.SetItemText(index, 3, RcSetArtikli.m_jedinica);
+		ListCtrl.SetItemText(index, 3, RcSetArtikli.m_mjera);
 		s.Format(_T("%d"), RcSetArtikli.m_stanje);
 		ListCtrl.SetItemText(index, 4, s);
 		s.Format(_T("%.2f"), RcSetArtikli.m_cijena);
@@ -94,6 +89,11 @@ BOOL DlgArtikli::OnInitDialog()
 void DlgArtikli::OnBnClickedDodajNoviArtikl()
 {
 	DlgNoviArtikl dlgNoviArtikl;
-	dlgNoviArtikl.DoModal();
+
+
+	if (dlgNoviArtikl.DoModal() == IDOK)
+	{
+		Invalidate();
+	}
 	// TODO: Add your control notification handler code here
 }

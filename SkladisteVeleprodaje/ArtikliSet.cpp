@@ -12,13 +12,13 @@ IMPLEMENT_DYNAMIC(ArtikliSet, CRecordset)
 ArtikliSet::ArtikliSet(CDatabase* pdb) : CRecordset(pdb)
 {
 	long m_rb = 0;
-	long m_sifra = 0;
-	CStringW m_nazivArtikla = _T("");
-	CStringW m_jedinica = _T("");
-	CStringW m_cijena = _T("");
-	CStringW m_stanje = _T("");
+	CString m_sifra = _T("");
+	CString m_nazivArtikla = _T("");
+	CString m_mjera = _T("");
+	CString m_stanje = _T("");
+	double m_cijena = 0;
 	m_nFields = 6;
-	m_nDefaultType = snapshot;
+	m_nDefaultType = dynaset;
 }
 
 CString ArtikliSet::GetDefaultConnect()
@@ -36,9 +36,9 @@ void ArtikliSet::DoFieldExchange(CFieldExchange* pFX)
 	pFX->SetFieldType(CFieldExchange::outputColumn);
 
 	RFX_Long(pFX, _T("[ID]"), m_rb);
-	RFX_Long(pFX, _T("[sifra]"), m_sifra);
+	RFX_Text(pFX, _T("[sifra]"), m_sifra);
 	RFX_Text(pFX, _T("[nazivArtikla]"), m_nazivArtikla);
-	RFX_Text(pFX, _T("[jedinica]"), m_jedinica);
+	RFX_Text(pFX, _T("[mjera]"), m_mjera);
 	RFX_Long(pFX, _T("[stanje]"), m_stanje);
 	RFX_Double(pFX, _T("[cijena]"), m_cijena);
 

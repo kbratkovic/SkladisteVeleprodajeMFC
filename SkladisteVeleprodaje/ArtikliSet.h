@@ -20,9 +20,9 @@ public:
 	// to support both Unicode and these conversions).
 
 	long m_rb;
-	long m_sifra;
-	CStringW m_nazivArtikla;
-	CStringW m_jedinica;
+	CString m_sifra;
+	CString m_nazivArtikla;
+	CString m_mjera;
 	long m_stanje;
 	double m_cijena;
 
