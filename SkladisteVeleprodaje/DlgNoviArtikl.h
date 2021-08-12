@@ -1,5 +1,6 @@
 #pragma once
 
+#include "ArtikliSet.h"
 
 // DlgNoviArtikl dialog
 
@@ -20,4 +21,13 @@ protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 
 	DECLARE_MESSAGE_MAP()
+
+public:
+	CEdit m_sifra;
+	CEdit m_nazivArtikla;
+	CEdit m_mjera;
+	double m_cijena;
+	afx_msg void OnBnClickedSpremi();
+	virtual BOOL OnInitDialog();
+	CEdit m_edit_cijena;
 };
