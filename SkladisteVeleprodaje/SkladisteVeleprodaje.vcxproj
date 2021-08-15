@@ -185,9 +185,11 @@
   <ItemGroup>
     <ClInclude Include="ChildView.h" />
     <ClInclude Include="DlgArtikli.h" />
+    <ClInclude Include="DlgKlijenti.h" />
     <ClInclude Include="DlgNoviArtikl.h" />
     <ClInclude Include="DlgNoviKlijent.h" />
     <ClInclude Include="framework.h" />
+    <ClInclude Include="KlijentiSet.h" />
     <ClInclude Include="MainFrm.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="ArtikliSet.h" />
@@ -199,8 +201,10 @@
   <ItemGroup>
     <ClCompile Include="ChildView.cpp" />
     <ClCompile Include="DlgArtikli.cpp" />
+    <ClCompile Include="DlgKlijenti.cpp" />
     <ClCompile Include="DlgNoviArtikl.cpp" />
     <ClCompile Include="DlgNoviKlijent.cpp" />
+    <ClCompile Include="KlijentiSet.cpp" />
     <ClCompile Include="MainFrm.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

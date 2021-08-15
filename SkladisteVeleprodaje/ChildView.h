@@ -37,5 +37,6 @@ public:
 	afx_msg void OnKlijentiNoviklijent();
 	afx_msg void OnArtikliNoviartikl();
 	afx_msg void OnArtikliSviArtikli();
+	afx_msg void OnKlijentiSviKlijenti();
 };
 
