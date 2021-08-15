@@ -15,6 +15,11 @@
 #define IDS_STRING_STANJE               203
 #define IDS_STRING_CIJENA               204
 #define IDS_STRING_SIFRA                205
+#define IDS_STRING_KLIJENT_ID           206
+#define IDS_STRING_NAZIV_KLIJENTA       207
+#define IDS_STRING_OIB                  208
+#define IDS_STRING_ADRESA               209
+#define IDS_STRING_TELEFON              210
 #define IDD_PODACI_O_KLIJENTIMA_NOVI_PODATAK 311
 #define IDD_PODACI_O_ARTIKLIMA_NOVI_PODATAK 313
 #define IDD_PODACI_O_ARTIKLIMA_PREGLED  319

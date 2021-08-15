@@ -33,7 +33,6 @@ protected:
 	afx_msg void OnPaint();
 	DECLARE_MESSAGE_MAP()
 public:
-	afx_msg void OnProbnaporuka();
 	afx_msg void OnKlijentiNoviklijent();
 	afx_msg void OnArtikliNoviartikl();
 	afx_msg void OnArtikliSviArtikli();

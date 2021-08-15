@@ -5,6 +5,7 @@
 #include "SkladisteVeleprodaje.h"
 #include "DlgKlijenti.h"
 #include "afxdialogex.h"
+#include "KlijentiSet.h"
 
 
 // DlgKlijenti dialog
@@ -24,6 +25,7 @@ DlgKlijenti::~DlgKlijenti()
 void DlgKlijenti::DoDataExchange(CDataExchange* pDX)
 {
 	CDialogEx::DoDataExchange(pDX);
+	DDX_Control(pDX, IDC_LIST1, ListCtrl);
 }
 
 
@@ -37,6 +39,45 @@ END_MESSAGE_MAP()
 BOOL DlgKlijenti::OnInitDialog()
 {
 	CDialogEx::OnInitDialog();
+
+	CString s;
+
+	KlijentiSet RecSetKlijenti;
+	RecSetKlijenti.Open();
+
+	s.LoadString(IDS_STRING_KLIJENT_ID);
+	ListCtrl.InsertColumn(0, s, LVCFMT_CENTER, 60);
+
+	s.LoadString(IDS_STRING_NAZIV_KLIJENTA);
+	ListCtrl.InsertColumn(1, s, LVCFMT_CENTER, 250);
+
+	s.LoadString(IDS_STRING_OIB);
+	ListCtrl.InsertColumn(2, s, LVCFMT_CENTER, 130);
+
+	s.LoadString(IDS_STRING_ADRESA);
+	ListCtrl.InsertColumn(3, s, LVCFMT_CENTER, 160);
+
+	s.LoadString(IDS_STRING_TELEFON);
+	ListCtrl.InsertColumn(4, s, LVCFMT_CENTER, 160);
+
+
+	while (!RecSetKlijenti.IsEOF())
+	{
+		const int index = ListCtrl.GetItemCount();
+
+		s.Format(_T("%d"), RecSetKlijenti.m_rb);
+		ListCtrl.InsertItem(index, s);
+		ListCtrl.SetItemText(index, 1, RecSetKlijenti.m_nazivKlijenta);
+		ListCtrl.SetItemText(index, 2, RecSetKlijenti.m_oib);
+		ListCtrl.SetItemText(index, 3, RecSetKlijenti.m_adresa);
+		ListCtrl.SetItemText(index, 4, RecSetKlijenti.m_telefon);
+
+		RecSetKlijenti.MoveNext();
+	}
+
+	RecSetKlijenti.Close();
+
+	ListCtrl.SetExtendedStyle(LVS_EX_FULLROWSELECT);
 
 	// TODO:  Add extra initialization here
 
