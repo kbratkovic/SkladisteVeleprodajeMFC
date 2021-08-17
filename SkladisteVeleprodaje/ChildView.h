@@ -37,5 +37,7 @@ public:
 	afx_msg void OnArtikliNoviartikl();
 	afx_msg void OnArtikliSviArtikli();
 	afx_msg void OnKlijentiSviKlijenti();
+	afx_msg void OnPrimkeSvePrimke();
+	afx_msg void OnPrimkeNovaprimka();
 };
 

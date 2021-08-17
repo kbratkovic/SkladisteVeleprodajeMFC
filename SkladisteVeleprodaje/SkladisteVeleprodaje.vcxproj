@@ -186,8 +186,11 @@
     <ClInclude Include="ChildView.h" />
     <ClInclude Include="DlgArtikli.h" />
     <ClInclude Include="DlgKlijenti.h" />
+    <ClInclude Include="DlgNovaPrimka.h" />
     <ClInclude Include="DlgNoviArtikl.h" />
     <ClInclude Include="DlgNoviKlijent.h" />
+    <ClInclude Include="DlgPrimke.h" />
+    <ClInclude Include="DlgStavkeNoviPodatak.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="KlijentiSet.h" />
     <ClInclude Include="MainFrm.h" />
@@ -202,8 +205,11 @@
     <ClCompile Include="ChildView.cpp" />
     <ClCompile Include="DlgArtikli.cpp" />
     <ClCompile Include="DlgKlijenti.cpp" />
+    <ClCompile Include="DlgNovaPrimka.cpp" />
     <ClCompile Include="DlgNoviArtikl.cpp" />
     <ClCompile Include="DlgNoviKlijent.cpp" />
+    <ClCompile Include="DlgPrimke.cpp" />
+    <ClCompile Include="DlgStavkeNoviPodatak.cpp" />
     <ClCompile Include="KlijentiSet.cpp" />
     <ClCompile Include="MainFrm.cpp" />
     <ClCompile Include="pch.cpp">

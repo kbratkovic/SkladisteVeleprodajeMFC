@@ -57,6 +57,15 @@
     <ClInclude Include="DlgKlijenti.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="DlgPrimke.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DlgNovaPrimka.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DlgStavkeNoviPodatak.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SkladisteVeleprodaje.cpp">
@@ -90,6 +99,15 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="DlgKlijenti.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgPrimke.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgNovaPrimka.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgStavkeNoviPodatak.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

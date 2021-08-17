@@ -27,6 +27,10 @@
 #define IDD_PODACI_O_ARTIKLIMA_SVI_ARTIKLI 319
 #define IDD_DIALOG1                     321
 #define IDD_PODACI_O_KLIJENTIMA_SVI_KLIJENTI 321
+#define IDD_PODACI_O_PRIMKAMA_SVE_PRIMKE 323
+#define IDD_PODACI_O_PRIMKAMA_NOVI_PODATAK 325
+#define IDD_DIALOG2                     327
+#define IDD_STAVKE_NOVI_PODATAK         327
 #define IDC_EDIT_SIFRA_ARTIKLA          1000
 #define IDC_EDIT_NAZIV_KLIJENTA         1001
 #define IDC_EDIT_OIB                    1002
@@ -40,6 +44,22 @@
 #define IDB_DODAJ_NOVI_ARTIKL           1014
 #define IDB_SPREMI                      1015
 #define IDB_DODAJ_NOVOG_KLIJENTA        1016
+#define IDB_DODAJ_NOVU_PRIMKU           1017
+#define IDB_DODAJ_NOVU_PRIMKU2          1018
+#define IDB_OTVORI_PRIMKU               1018
+#define IDC_EDIT1                       1018
+#define IDC_EDIT_BROJ_PRIMKE            1018
+#define IDC_EDIT2                       1019
+#define IDC_EDIT_DATUM                  1019
+#define IDC_EDIT3                       1020
+#define IDC_EDIT_KLIJENT                1020
+#define IDC_BUTTON1                     1022
+#define IDB_DODAJ_NOVI                  1022
+#define IDC_BUTTON2                     1023
+#define IDC_EDIT4                       1026
+#define IDC_EDIT5                       1027
+#define IDC_EDIT6                       1028
+#define IDC_EDIT7                       1031
 #define ID_ARTIKLI_NOVIARTIKL           32771
 #define ID_ARTIKLI_ARTIKLI              32772
 #define ID_KLIJENTI_NOVIKLIJENT         32773
@@ -54,9 +74,9 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        323
+#define _APS_NEXT_RESOURCE_VALUE        329
 #define _APS_NEXT_COMMAND_VALUE         32780
-#define _APS_NEXT_CONTROL_VALUE         1017
+#define _APS_NEXT_CONTROL_VALUE         1032
 #define _APS_NEXT_SYMED_VALUE           310
 #endif
 #endif

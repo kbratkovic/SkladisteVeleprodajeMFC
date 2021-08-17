@@ -10,6 +10,8 @@
 #include "DlgNoviArtikl.h"
 #include "DlgArtikli.h"
 #include "DlgKlijenti.h"
+#include "DlgPrimke.h"
+#include "DlgNovaPrimka.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -32,6 +34,8 @@ BEGIN_MESSAGE_MAP(CChildView, CWnd)
 	ON_COMMAND(ID_ARTIKLI_NOVIARTIKL, &CChildView::OnArtikliNoviartikl)
 	ON_COMMAND(ID_ARTIKLI_ARTIKLI, &CChildView::OnArtikliSviArtikli)
 	ON_COMMAND(ID_KLIJENTI_KLIJENTI, &CChildView::OnKlijentiSviKlijenti)
+	ON_COMMAND(ID_PRIMKE_PRIMKE, &CChildView::OnPrimkeSvePrimke)
+	ON_COMMAND(ID_PRIMKE_NOVAPRIMKA, &CChildView::OnPrimkeNovaprimka)
 END_MESSAGE_MAP()
 
 
@@ -55,47 +59,45 @@ BOOL CChildView::PreCreateWindow(CREATESTRUCT& cs)
 void CChildView::OnArtikliNoviartikl()
 {
 	DlgNoviArtikl dlgNoviArtikl;
-	// send value
-	if (dlgNoviArtikl.DoModal() == IDOK)
-	{
-		//receive value
-		Invalidate();
-	}
+	dlgNoviArtikl.DoModal();
 }
 
 
 void CChildView::OnArtikliSviArtikli()
 {
 	DlgArtikli dlgArtikli;
-	// send value
-	if (dlgArtikli.DoModal() == IDOK)
-	{
-		//receive value
-		Invalidate();
-	}
+	dlgArtikli.DoModal();
 }
 
 
 void CChildView::OnKlijentiNoviklijent()
 {
 	DlgNoviKlijent dlgKlijent;
-	// send value
-	if (dlgKlijent.DoModal() == IDOK)
-	{
-		//receive value
-		Invalidate();
-	}
+	dlgKlijent.DoModal();
 }
 
 
 void CChildView::OnKlijentiSviKlijenti()
 {
 	DlgKlijenti dlgKlijenti;
-
-	if (dlgKlijenti.DoModal() == IDOK)
-	{
-		//receive value
-		Invalidate();
-	}
+	dlgKlijenti.DoModal();
 	// TODO: Add your command handler code here
 }
+
+
+void CChildView::OnPrimkeNovaprimka()
+{
+	DlgNovaPrimka dlgNovaPrimka;
+	dlgNovaPrimka.DoModal();
+	// TODO: Add your command handler code here
+}
+
+
+void CChildView::OnPrimkeSvePrimke()
+{
+	DlgPrimke dlgPrimke;
+	dlgPrimke.DoModal();
+	// TODO: Add your command handler code here
+}
+
+
