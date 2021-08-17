@@ -23,4 +23,5 @@ protected:
 public:
 	virtual BOOL OnInitDialog();
 	CListCtrl ListCtrl;
+	afx_msg void OnBnClickedDodajNovogKlijenta();
 };

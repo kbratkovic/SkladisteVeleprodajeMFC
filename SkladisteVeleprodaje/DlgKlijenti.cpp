@@ -6,6 +6,7 @@
 #include "DlgKlijenti.h"
 #include "afxdialogex.h"
 #include "KlijentiSet.h"
+#include "DlgNoviKlijent.h"
 
 
 // DlgKlijenti dialog
@@ -30,6 +31,7 @@ void DlgKlijenti::DoDataExchange(CDataExchange* pDX)
 
 
 BEGIN_MESSAGE_MAP(DlgKlijenti, CDialogEx)
+	ON_BN_CLICKED(IDB_DODAJ_NOVOG_KLIJENTA, &DlgKlijenti::OnBnClickedDodajNovogKlijenta)
 END_MESSAGE_MAP()
 
 
@@ -47,16 +49,12 @@ BOOL DlgKlijenti::OnInitDialog()
 
 	s.LoadString(IDS_STRING_KLIJENT_ID);
 	ListCtrl.InsertColumn(0, s, LVCFMT_CENTER, 60);
-
 	s.LoadString(IDS_STRING_NAZIV_KLIJENTA);
 	ListCtrl.InsertColumn(1, s, LVCFMT_CENTER, 250);
-
 	s.LoadString(IDS_STRING_OIB);
 	ListCtrl.InsertColumn(2, s, LVCFMT_CENTER, 130);
-
 	s.LoadString(IDS_STRING_ADRESA);
 	ListCtrl.InsertColumn(3, s, LVCFMT_CENTER, 160);
-
 	s.LoadString(IDS_STRING_TELEFON);
 	ListCtrl.InsertColumn(4, s, LVCFMT_CENTER, 160);
 
@@ -83,4 +81,17 @@ BOOL DlgKlijenti::OnInitDialog()
 
 	return TRUE;  // return TRUE unless you set the focus to a control
 				  // EXCEPTION: OCX Property Pages should return FALSE
+}
+
+
+void DlgKlijenti::OnBnClickedDodajNovogKlijenta()
+{
+	DlgKlijenti dlg;
+
+	DlgNoviKlijent dlgNoviKlijent;
+	dlgNoviKlijent.DoModal();
+
+	EndDialog(1);
+	dlg.DoModal();
+	// TODO: Add your control notification handler code here
 }

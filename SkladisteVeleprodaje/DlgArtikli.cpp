@@ -25,11 +25,13 @@ void DlgArtikli::DoDataExchange(CDataExchange* pDX)
 {
 	CDialogEx::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_LIST1, ListCtrl);
+	DDX_Control(pDX, IDB_DODAJ_NOVI_ARTIKL, m_btnDodajArtikl);
 }
 
 
 BEGIN_MESSAGE_MAP(DlgArtikli, CDialogEx)
 	ON_BN_CLICKED(IDB_DODAJ_NOVI_ARTIKL, &DlgArtikli::OnBnClickedDodajNoviArtikl)
+	ON_BN_CLICKED(IDB_IZMIJENI_ARTIKL, &DlgArtikli::OnBnClickedIzmijeniArtikl)
 END_MESSAGE_MAP()
 
 
@@ -88,8 +90,21 @@ BOOL DlgArtikli::OnInitDialog()
 
 void DlgArtikli::OnBnClickedDodajNoviArtikl()
 {
-	DlgNoviArtikl dlgNoviArtikl;
+	DlgArtikli dlg;
 
+	DlgNoviArtikl dlgNoviArtikl;
+	dlgNoviArtikl.DoModal();
+	
+	EndDialog(1);
+	dlg.DoModal();
+
+	// TODO: Add your control notification handler code here
+}
+
+
+void DlgArtikli::OnBnClickedIzmijeniArtikl()
+{
+	DlgNoviArtikl dlgNoviArtikl;
 
 	if (dlgNoviArtikl.DoModal() == IDOK)
 	{
