@@ -20,6 +20,7 @@
 #define IDS_STRING_OIB                  208
 #define IDS_STRING_ADRESA               209
 #define IDS_STRING_TELEFON              210
+#define IDS_STRING_DATUM                211
 #define IDD_PODACI_O_KLIJENTIMA_NOVI_PODATAK 311
 #define IDD_PODACI_O_ARTIKLIMA_NOVI_PODATAK 313
 #define IDD_PODACI_O_ARTIKLIMA_PREGLED  319

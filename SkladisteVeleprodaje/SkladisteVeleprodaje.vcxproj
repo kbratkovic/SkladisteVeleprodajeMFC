@@ -196,6 +196,7 @@
     <ClInclude Include="MainFrm.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="ArtikliSet.h" />
+    <ClInclude Include="PrimkeSet.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="SkladisteVeleprodaje.h" />
     <ClInclude Include="stdafx.h" />
@@ -219,6 +220,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="ArtikliSet.cpp" />
+    <ClCompile Include="PrimkeSet.cpp" />
     <ClCompile Include="SkladisteVeleprodaje.cpp" />
     <ClCompile Include="stdafx.cpp" />
   </ItemGroup>
