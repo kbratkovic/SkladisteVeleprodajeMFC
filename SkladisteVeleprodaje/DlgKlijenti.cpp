@@ -48,15 +48,15 @@ BOOL DlgKlijenti::OnInitDialog()
 	RecSetKlijenti.Open();
 
 	s.LoadString(IDS_STRING_KLIJENT_ID);
-	ListCtrl.InsertColumn(0, s, LVCFMT_CENTER, 60);
+	ListCtrl.InsertColumn(1, s, LVCFMT_LEFT, 60);
 	s.LoadString(IDS_STRING_NAZIV_KLIJENTA);
-	ListCtrl.InsertColumn(1, s, LVCFMT_CENTER, 250);
+	ListCtrl.InsertColumn(2, s, LVCFMT_CENTER, 250);
 	s.LoadString(IDS_STRING_OIB);
-	ListCtrl.InsertColumn(2, s, LVCFMT_CENTER, 130);
+	ListCtrl.InsertColumn(3, s, LVCFMT_CENTER, 130);
 	s.LoadString(IDS_STRING_ADRESA);
-	ListCtrl.InsertColumn(3, s, LVCFMT_CENTER, 160);
-	s.LoadString(IDS_STRING_TELEFON);
 	ListCtrl.InsertColumn(4, s, LVCFMT_CENTER, 160);
+	s.LoadString(IDS_STRING_TELEFON);
+	ListCtrl.InsertColumn(5, s, LVCFMT_CENTER, 160);
 
 
 	while (!RecSetKlijenti.IsEOF())

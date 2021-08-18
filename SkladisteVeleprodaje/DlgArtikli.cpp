@@ -48,17 +48,17 @@ BOOL DlgArtikli::OnInitDialog()
 	RcSetArtikli.Open();
 	
 	s.LoadString(IDS_STRING_ID);
-	ListCtrl.InsertColumn(0, s, LVCFMT_CENTER, 60);
+	ListCtrl.InsertColumn(1, s, LVCFMT_LEFT, 60);
 	s.LoadString(IDS_STRING_SIFRA);
-	ListCtrl.InsertColumn(1, s, LVCFMT_CENTER, 100);
+	ListCtrl.InsertColumn(2, s, LVCFMT_CENTER, 120);
 	s.LoadString(IDS_STRING_NAZIV_ARTIKLA);
-	ListCtrl.InsertColumn(2, s, LVCFMT_CENTER, 300);
+	ListCtrl.InsertColumn(3, s, LVCFMT_CENTER, 300);
 	s.LoadString(IDS_STRING_JEDINICA);
-	ListCtrl.InsertColumn(3, s, LVCFMT_CENTER, 100);
-	s.LoadString(IDS_STRING_STANJE);
 	ListCtrl.InsertColumn(4, s, LVCFMT_CENTER, 100);
+	s.LoadString(IDS_STRING_STANJE);
+	ListCtrl.InsertColumn(5, s, LVCFMT_CENTER, 100);
 	s.LoadString(IDS_STRING_CIJENA);
-	ListCtrl.InsertColumn(5, s, LVCFMT_CENTER, 120);
+	ListCtrl.InsertColumn(6, s, LVCFMT_CENTER, 120);
 
 
 	while (!RcSetArtikli.IsEOF())
