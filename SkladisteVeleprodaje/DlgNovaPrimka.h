@@ -21,6 +21,11 @@ protected:
 
 	DECLARE_MESSAGE_MAP()
 public:
+	virtual BOOL OnInitDialog();
 	afx_msg void OnBnClickedDodajNovi();
 	afx_msg void OnBnClickedOdaberiKlijenta();
+	CEdit m_edit_datum;
+	CEdit m_edit_nazivKlijenta;
+	CString m_nazivKlijenta;
+	CEdit m_edit_rbPrimke;
 };
