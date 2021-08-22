@@ -22,4 +22,12 @@ protected:
 	DECLARE_MESSAGE_MAP()
 public:
 	afx_msg void OnBnClickedOdaberiArtikl();
+	CString m_artiklSifra;
+	CString m_artiklNaziv;
+	long m_kolicina;
+	double m_rabat;
+	double m_fakturnaCijena;
+	double m_nabavnaCijena;
+	double m_vpc;
+	afx_msg void OnBnClickedSpremi();
 };

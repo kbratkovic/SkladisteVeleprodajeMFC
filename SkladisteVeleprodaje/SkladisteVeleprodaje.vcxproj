@@ -189,6 +189,8 @@
     <ClInclude Include="DlgNovaPrimka.h" />
     <ClInclude Include="DlgNoviArtikl.h" />
     <ClInclude Include="DlgNoviKlijent.h" />
+    <ClInclude Include="DlgOdaberiArtikl.h" />
+    <ClInclude Include="DlgOdaberiKlijenta.h" />
     <ClInclude Include="DlgPrimke.h" />
     <ClInclude Include="DlgStavkeNoviPodatak.h" />
     <ClInclude Include="framework.h" />
@@ -209,6 +211,8 @@
     <ClCompile Include="DlgNovaPrimka.cpp" />
     <ClCompile Include="DlgNoviArtikl.cpp" />
     <ClCompile Include="DlgNoviKlijent.cpp" />
+    <ClCompile Include="DlgOdaberiArtikl.cpp" />
+    <ClCompile Include="DlgOdaberiKlijenta.cpp" />
     <ClCompile Include="DlgPrimke.cpp" />
     <ClCompile Include="DlgStavkeNoviPodatak.cpp" />
     <ClCompile Include="KlijentiSet.cpp" />

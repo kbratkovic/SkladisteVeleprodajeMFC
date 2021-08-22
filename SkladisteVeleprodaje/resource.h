@@ -21,6 +21,7 @@
 #define IDS_STRING_ADRESA               209
 #define IDS_STRING_TELEFON              210
 #define IDS_STRING_DATUM                211
+#define IDS_STRING_ODABERI_KLIJENTA     212
 #define IDD_PODACI_O_KLIJENTIMA_NOVI_PODATAK 311
 #define IDD_PODACI_O_ARTIKLIMA_NOVI_PODATAK 313
 #define IDD_PODACI_O_ARTIKLIMA_PREGLED  319
@@ -32,6 +33,10 @@
 #define IDD_PODACI_O_PRIMKAMA_NOVI_PODATAK 325
 #define IDD_DIALOG2                     327
 #define IDD_STAVKE_NOVI_PODATAK         327
+#define IDD_DIALOG3                     329
+#define IDD_PODACI_O_KLIJENTIMA_ODABERI_KLIJENTA 329
+#define IDD_DIALOG4                     331
+#define IDD_PODACI_O_ARTIKLIMA_ODABERI_ARTIKL 331
 #define IDC_EDIT_SIFRA_ARTIKLA          1000
 #define IDC_EDIT_NAZIV_KLIJENTA         1001
 #define IDC_EDIT_OIB                    1002
@@ -46,21 +51,21 @@
 #define IDB_SPREMI                      1015
 #define IDB_DODAJ_NOVOG_KLIJENTA        1016
 #define IDB_DODAJ_NOVU_PRIMKU           1017
-#define IDB_DODAJ_NOVU_PRIMKU2          1018
 #define IDB_OTVORI_PRIMKU               1018
-#define IDC_EDIT1                       1018
-#define IDC_EDIT_BROJ_PRIMKE            1018
-#define IDC_EDIT2                       1019
-#define IDC_EDIT_DATUM                  1019
-#define IDC_EDIT3                       1020
-#define IDC_EDIT_KLIJENT                1020
-#define IDC_BUTTON1                     1022
-#define IDB_DODAJ_NOVI                  1022
-#define IDC_BUTTON2                     1023
-#define IDC_EDIT4                       1026
-#define IDC_EDIT5                       1027
-#define IDC_EDIT6                       1028
-#define IDC_EDIT7                       1031
+#define IDC_EDIT_BROJ_PRIMKE            1019
+#define IDC_EDIT_ARTIKL_SIFRA           1020
+#define IDC_EDIT_DATUM                  1021
+#define IDC_EDIT_KOLICINA               1022
+#define IDC_EDIT_KLIJENT                1023
+#define IDC_EDIT_FAKTURNA_CIJENA        1024
+#define IDC_BUTTON1                     1025
+#define IDB_DODAJ_NOVI                  1026
+#define IDC_BUTTON2                     1027
+#define IDC_EDIT_RABAT                  1028
+#define IDC_EDIT_NABAVNA_CIJENA         1029
+#define IDC_EDIT_VPC                    1030
+#define IDB_ODABERI                     1031
+#define IDC_STATIC_ARTIKL_OPIS          1032
 #define ID_ARTIKLI_NOVIARTIKL           32771
 #define ID_ARTIKLI_ARTIKLI              32772
 #define ID_KLIJENTI_NOVIKLIJENT         32773
@@ -75,9 +80,9 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        329
+#define _APS_NEXT_RESOURCE_VALUE        333
 #define _APS_NEXT_COMMAND_VALUE         32780
-#define _APS_NEXT_CONTROL_VALUE         1032
+#define _APS_NEXT_CONTROL_VALUE         1034
 #define _APS_NEXT_SYMED_VALUE           310
 #endif
 #endif

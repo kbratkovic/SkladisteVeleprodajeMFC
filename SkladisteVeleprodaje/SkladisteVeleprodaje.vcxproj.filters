@@ -69,6 +69,12 @@
     <ClInclude Include="PrimkeSet.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="DlgOdaberiKlijenta.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DlgOdaberiArtikl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SkladisteVeleprodaje.cpp">
@@ -114,6 +120,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="PrimkeSet.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgOdaberiKlijenta.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgOdaberiArtikl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
