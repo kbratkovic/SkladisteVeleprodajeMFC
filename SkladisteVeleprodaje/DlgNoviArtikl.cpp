@@ -4,6 +4,7 @@
 #include "pch.h"
 #include "SkladisteVeleprodaje.h"
 #include "DlgNoviArtikl.h"
+#include "DlgArtikli.h"
 #include "afxdialogex.h"
 
 
@@ -14,7 +15,7 @@ IMPLEMENT_DYNAMIC(DlgNoviArtikl, CDialogEx)
 DlgNoviArtikl::DlgNoviArtikl(CWnd* pParent /*=nullptr*/)
 	: CDialogEx(IDD_PODACI_O_ARTIKLIMA_NOVI_PODATAK, pParent)
 {
-	
+
 }
 
 DlgNoviArtikl::~DlgNoviArtikl()
@@ -43,19 +44,26 @@ END_MESSAGE_MAP()
 
 void DlgNoviArtikl::OnBnClickedSpremi()
 {
+	UnesiNoviArtikl();
+	
+	EndDialog(1);
+
+	// TODO: Add your control notification handler code here
+}
+
+void DlgNoviArtikl::UnesiNoviArtikl()
+{
 	ArtikliSet RecSetArtikli;
+	long iduciID = 1;
 
 	UpdateData(TRUE);
 
 	CString sifra;
 	m_sifra.GetWindowText(sifra);
-
 	CString nazivArtikla;
 	m_nazivArtikla.GetWindowText(nazivArtikla);
-
 	CString mjera;
 	m_mjera.GetWindowText(mjera);
-
 	CString cijena;
 	m_edit_cijena.GetWindowText(cijena);
 	m_cijena = _wtof(cijena);
@@ -65,19 +73,22 @@ void DlgNoviArtikl::OnBnClickedSpremi()
 	{
 		RecSetArtikli.Open();
 	}
-	
+
+	if (!RecSetArtikli.IsBOF() && !RecSetArtikli.IsEOF())
+	{
+		iduciID = RecSetArtikli.MaxID() + 1;
+	}
+
 	RecSetArtikli.AddNew();
-	
+
+	RecSetArtikli.m_rb = iduciID;
 	RecSetArtikli.m_sifra = sifra;
 	RecSetArtikli.m_nazivArtikla = nazivArtikla;
 	RecSetArtikli.m_mjera = mjera;
 	RecSetArtikli.m_cijena = m_cijena;
-	
+
 	RecSetArtikli.Update();
 	RecSetArtikli.Close();
-	EndDialog(1);
-
-	// TODO: Add your control notification handler code here
 }
 
 
@@ -85,7 +96,7 @@ BOOL DlgNoviArtikl::OnInitDialog()
 {
 	CDialogEx::OnInitDialog();
 
-		// TODO:  Add extra initialization here
+	// TODO:  Add extra initialization here
 
 	return TRUE;  // return TRUE unless you set the focus to a control
 				  // EXCEPTION: OCX Property Pages should return FALSE

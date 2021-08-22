@@ -22,10 +22,9 @@ protected:
 	DECLARE_MESSAGE_MAP()
 public:
 	afx_msg void OnBnClickedSpremi();
+	void UnesiNovogKlijenta();
 	CEdit m_nazivKlijenta;
-	CEdit m_edit_oib;
-	CString m_oib;
+	CEdit m_oib;
 	CEdit m_adresa;
 	CEdit m_telefon;
-	void UnesiNovogKlijenta();
 };

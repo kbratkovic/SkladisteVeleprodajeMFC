@@ -57,3 +57,10 @@ void ArtikliSet::Dump(CDumpContext& dc) const
 	CRecordset::Dump(dc);
 }
 #endif //_DEBUG
+
+
+long ArtikliSet::MaxID()
+{
+	MoveLast();
+	return m_rb;
+}

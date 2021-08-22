@@ -6,6 +6,7 @@
 #include "DlgNoviKlijent.h"
 #include "afxdialogex.h"
 #include "KlijentiSet.h"
+#include "DlgKlijenti.h"
 
 
 
@@ -15,7 +16,6 @@ IMPLEMENT_DYNAMIC(DlgNoviKlijent, CDialogEx)
 
 DlgNoviKlijent::DlgNoviKlijent(CWnd* pParent /*=nullptr*/)
 	: CDialogEx(IDD_PODACI_O_KLIJENTIMA_NOVI_PODATAK, pParent)
-	, m_oib(_T(""))
 {
 
 }
@@ -28,11 +28,9 @@ void DlgNoviKlijent::DoDataExchange(CDataExchange* pDX)
 {
 	CDialogEx::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_EDIT_NAZIV_KLIJENTA, m_nazivKlijenta);
-	DDX_Text(pDX, IDC_EDIT_OIB, m_oib);
-	DDV_MaxChars(pDX, m_oib, 11);
 	DDX_Control(pDX, IDC_EDIT_ADRESA, m_adresa);
 	DDX_Control(pDX, IDC_EDIT_TELEFON, m_telefon);
-	DDX_Control(pDX, IDC_EDIT_OIB, m_edit_oib);
+	DDX_Control(pDX, IDC_EDIT_OIB, m_oib);
 }
 
 
@@ -63,7 +61,7 @@ void DlgNoviKlijent::UnesiNovogKlijenta()
 	CString nazivKlijenta;
 	m_nazivKlijenta.GetWindowText(nazivKlijenta);
 	CString oib;
-	m_edit_oib.GetWindowText(oib);
+	m_oib.GetWindowText(oib);
 	CString adresa;
 	m_adresa.GetWindowText(adresa);
 	CString telefon;

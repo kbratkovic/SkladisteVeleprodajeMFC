@@ -12,7 +12,7 @@ public:
 	DlgNoviArtikl(CWnd* pParent = nullptr);   // standard constructor
 	virtual ~DlgNoviArtikl();
 
-// Dialog Data
+	// Dialog Data
 #ifdef AFX_DESIGN_TIME
 	enum { IDD = IDD_PODACI_O_ARTIKLIMA_NOVI_PODATAK };
 #endif
@@ -23,11 +23,12 @@ protected:
 	DECLARE_MESSAGE_MAP()
 
 public:
+	virtual BOOL OnInitDialog();
+	afx_msg void OnBnClickedSpremi();
+	void UnesiNoviArtikl();
 	CEdit m_sifra;
 	CEdit m_nazivArtikla;
 	CEdit m_mjera;
 	double m_cijena;
-	afx_msg void OnBnClickedSpremi();
-	virtual BOOL OnInitDialog();
 	CEdit m_edit_cijena;
 };

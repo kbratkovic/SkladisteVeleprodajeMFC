@@ -5,7 +5,7 @@
 #include "SkladisteVeleprodaje.h"
 #include "DlgArtikli.h"
 #include "afxdialogex.h"
-
+#include <string> 
 
 // DlgArtikli dialog
 
@@ -80,7 +80,8 @@ BOOL DlgArtikli::OnInitDialog()
 
 	RcSetArtikli.Close();
 
-	ListCtrl.SetExtendedStyle(LVS_EX_FULLROWSELECT);
+	ListCtrl.SetExtendedStyle(ListCtrl.GetExtendedStyle() | LVS_EX_FULLROWSELECT);
+	
 	// TODO:  Add extra initialization here
 
 	return TRUE;  // return TRUE unless you set the focus to a control
@@ -104,11 +105,5 @@ void DlgArtikli::OnBnClickedDodajNoviArtikl()
 
 void DlgArtikli::OnBnClickedIzmijeniArtikl()
 {
-	DlgNoviArtikl dlgNoviArtikl;
 
-	if (dlgNoviArtikl.DoModal() == IDOK)
-	{
-		Invalidate();
-	}
-	// TODO: Add your control notification handler code here
 }

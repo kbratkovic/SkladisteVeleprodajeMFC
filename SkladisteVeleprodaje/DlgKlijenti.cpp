@@ -42,6 +42,15 @@ BOOL DlgKlijenti::OnInitDialog()
 {
 	CDialogEx::OnInitDialog();
 
+	PrikaziKlijente();
+
+	return TRUE;  // return TRUE unless you set the focus to a control
+				  // EXCEPTION: OCX Property Pages should return FALSE
+}
+
+
+void DlgKlijenti::PrikaziKlijente()
+{
 	CString s;
 
 	KlijentiSet RecSetKlijenti;
@@ -79,10 +88,8 @@ BOOL DlgKlijenti::OnInitDialog()
 
 	// TODO:  Add extra initialization here
 
-	return TRUE;  // return TRUE unless you set the focus to a control
-				  // EXCEPTION: OCX Property Pages should return FALSE
+	
 }
-
 
 void DlgKlijenti::OnBnClickedDodajNovogKlijenta()
 {

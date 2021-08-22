@@ -51,3 +51,10 @@ void PrimkeSet::Dump(CDumpContext& dc) const
 	CRecordset::Dump(dc);
 }
 #endif //_DEBUG
+
+
+long PrimkeSet::MaxID()
+{
+	MoveLast();
+	return m_rb;
+}

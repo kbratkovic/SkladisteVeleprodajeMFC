@@ -22,6 +22,7 @@ protected:
 	DECLARE_MESSAGE_MAP()
 public:
 	virtual BOOL OnInitDialog();
-	CListCtrl ListCtrl;
 	afx_msg void OnBnClickedDodajNovogKlijenta();
+	void PrikaziKlijente();
+	CListCtrl ListCtrl;
 };
