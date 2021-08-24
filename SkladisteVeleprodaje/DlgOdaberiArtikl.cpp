@@ -92,12 +92,13 @@ BOOL DlgOdaberiArtikl::OnInitDialog()
 
 void DlgOdaberiArtikl::OnBnClickedOdaberi()
 {
-	CString nazivArtikla, sifraArtikla;
+	CString nazivArtikla, sifraArtikla, s;
 
 	POSITION pos = ListCtrl.GetFirstSelectedItemPosition();
 	if (pos == NULL)
 	{
-		MessageBox(_T("Molim odaberite artikl.\n"));
+		s.LoadString(IDS_STRING_OBAVEZAN_UNOS_ARTIKLA);
+		MessageBox(s);
 	}
 	else
 	{

@@ -89,12 +89,13 @@ BOOL DlgOdaberiKlijenta::OnInitDialog()
 
 void DlgOdaberiKlijenta::OnBnClickedOdaberi()
 {
-	CString nazivKlijenta;
+	CString nazivKlijenta, s;
 	
 	POSITION pos = ListCtrl.GetFirstSelectedItemPosition();
 	if (pos == NULL)
 	{
-		MessageBox(_T("Molim odaberite klijenta.\n"));
+		s.LoadString(IDS_STRING_OBAVEZAN_UNOS_KLIJENTA);
+		MessageBox(s);
 	}
 	else
 	{
