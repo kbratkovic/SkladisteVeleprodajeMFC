@@ -33,6 +33,7 @@ void DlgNovaPrimka::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_EDIT_KLIJENT, m_edit_nazivKlijenta);
 	DDX_Text(pDX, IDC_EDIT_KLIJENT, m_nazivKlijenta);
 	DDX_Control(pDX, IDC_EDIT_BROJ_PRIMKE, m_edit_rbPrimke);
+	DDX_Control(pDX, IDC_LIST1, ListCtrl);
 }
 
 
@@ -71,10 +72,23 @@ BOOL DlgNovaPrimka::OnInitDialog()
 	RecSetPrimke.Close();
 
 	CTime t = CTime::GetCurrentTime();
-	CString s = t.Format("%d.%m.%Y.");
-	m_edit_datum.SetWindowTextW(s);
+	CString formatDate = t.Format("%d.%m.%Y.");
+	m_edit_datum.SetWindowTextW(formatDate);
 
+	CString s;
 
+	s.LoadString(IDS_STRING_ID);
+	ListCtrl.InsertColumn(1, s, LVCFMT_LEFT, 60);
+	s.LoadString(IDS_STRING_SIFRA);
+	ListCtrl.InsertColumn(2, s, LVCFMT_CENTER, 120);
+	s.LoadString(IDS_STRING_NAZIV);
+	ListCtrl.InsertColumn(3, s, LVCFMT_CENTER, 180);
+	s.LoadString(IDS_STRING_KOLICINA);
+	ListCtrl.InsertColumn(4, s, LVCFMT_CENTER, 100);
+	s.LoadString(IDS_STRING_FAKTURNA);
+	ListCtrl.InsertColumn(5, s, LVCFMT_CENTER, 160);
+	s.LoadString(IDS_STRING_PRODAJNA);
+	ListCtrl.InsertColumn(6, s, LVCFMT_CENTER, 160);
 
 	return TRUE;  // return TRUE unless you set the focus to a control
 				  // EXCEPTION: OCX Property Pages should return FALSE
@@ -100,18 +114,17 @@ void DlgNovaPrimka::OnBnClickedOdaberiKlijenta()
 
 void DlgNovaPrimka::OnBnClickedDodajNovi()
 {
-	if (!m_nazivKlijenta.IsEmpty())
+	DlgStavkeNoviPodatak dlg;
+
+	if (dlg.DoModal() == IDOK)
 	{
-		DlgStavkeNoviPodatak dlg;
-		dlg.DoModal();
+		m_artiklSifra = dlg.m_artiklSifra;
+		m_artiklNaziv = dlg.m_artiklNaziv;
+		m_kolicina = dlg.m_kolicina;
+		m_fakturnaCijena = dlg.m_fakturnaCijena;
+		m_nabavnaCijena = dlg.m_nabavnaCijena;
+		m_vpc = dlg.m_vpc;
 	}
-	else
-	{
-		CString s;
-		s.LoadStringW(IDS_STRING_ODABERI_KLIJENTA);
-		MessageBox(s);
-	}
-	// TODO: Add your control notification handler code here
 }
 
 

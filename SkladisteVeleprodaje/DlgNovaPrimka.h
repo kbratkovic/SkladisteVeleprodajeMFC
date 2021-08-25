@@ -24,8 +24,17 @@ public:
 	virtual BOOL OnInitDialog();
 	afx_msg void OnBnClickedDodajNovi();
 	afx_msg void OnBnClickedOdaberiKlijenta();
+	CListCtrl ListCtrl;
 	CEdit m_edit_datum;
 	CEdit m_edit_nazivKlijenta;
 	CString m_nazivKlijenta;
 	CEdit m_edit_rbPrimke;
+
+	CString m_artiklSifra;
+	CString m_artiklNaziv;
+	long m_kolicina;
+	double m_rabat;
+	double m_fakturnaCijena;
+	double m_nabavnaCijena;
+	double m_vpc;
 };
