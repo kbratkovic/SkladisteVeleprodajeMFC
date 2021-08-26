@@ -35,7 +35,7 @@ void ArtikliSet::DoFieldExchange(CFieldExchange* pFX)
 {
 	pFX->SetFieldType(CFieldExchange::outputColumn);
 
-	RFX_Long(pFX, _T("[ID]"), m_rb);
+	RFX_Long(pFX, _T("[artiklID]"), m_rb);
 	RFX_Text(pFX, _T("[sifra]"), m_sifra);
 	RFX_Text(pFX, _T("[nazivArtikla]"), m_nazivArtikla);
 	RFX_Text(pFX, _T("[mjera]"), m_mjera);
