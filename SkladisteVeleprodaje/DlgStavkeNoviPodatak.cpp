@@ -35,7 +35,6 @@ void DlgStavkeNoviPodatak::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_STATIC_ARTIKL_OPIS, m_artiklNaziv);
 	DDX_Text(pDX, IDC_EDIT_KOLICINA, m_kolicina);
 	DDX_Text(pDX, IDC_EDIT_RABAT, m_rabat);
-	DDV_MinMaxDouble(pDX, m_rabat, 1, 100);
 	DDX_Text(pDX, IDC_EDIT_FAKTURNA_CIJENA, m_fakturnaCijena);
 	DDX_Text(pDX, IDC_EDIT_NABAVNA_CIJENA, m_nabavnaCijena);
 	DDX_Text(pDX, IDC_EDIT_VPC, m_vpc);

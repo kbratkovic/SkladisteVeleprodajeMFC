@@ -9,6 +9,7 @@
 #include "DlgKlijenti.h"
 #include "DlgOdaberiKlijenta.h"
 #include "PrimkeSet.h"
+#include "ArtikliSet.h"
 
 
 // DlgNovaPrimka dialog
@@ -17,7 +18,7 @@ IMPLEMENT_DYNAMIC(DlgNovaPrimka, CDialogEx)
 
 DlgNovaPrimka::DlgNovaPrimka(CWnd* pParent /*=nullptr*/)
 	: CDialogEx(IDD_PODACI_O_PRIMKAMA_NOVI_PODATAK, pParent)
-	, m_nazivKlijenta(_T(""))
+	//, m_nazivKlijenta(_T(""))
 {
 	
 }
@@ -40,6 +41,7 @@ void DlgNovaPrimka::DoDataExchange(CDataExchange* pDX)
 BEGIN_MESSAGE_MAP(DlgNovaPrimka, CDialogEx)
 	ON_BN_CLICKED(IDB_DODAJ_NOVI, &DlgNovaPrimka::OnBnClickedDodajNovi)
 	ON_BN_CLICKED(IDC_BUTTON2, &DlgNovaPrimka::OnBnClickedOdaberiKlijenta)
+	ON_BN_CLICKED(IDB_SPREMI, &DlgNovaPrimka::OnBnClickedSpremi)
 END_MESSAGE_MAP()
 
 
@@ -80,15 +82,17 @@ BOOL DlgNovaPrimka::OnInitDialog()
 	s.LoadString(IDS_STRING_ID);
 	ListCtrl.InsertColumn(1, s, LVCFMT_LEFT, 60);
 	s.LoadString(IDS_STRING_SIFRA);
-	ListCtrl.InsertColumn(2, s, LVCFMT_CENTER, 120);
+	ListCtrl.InsertColumn(2, s, LVCFMT_CENTER, 130);
 	s.LoadString(IDS_STRING_NAZIV);
-	ListCtrl.InsertColumn(3, s, LVCFMT_CENTER, 180);
+	ListCtrl.InsertColumn(3, s, LVCFMT_CENTER, 200);
 	s.LoadString(IDS_STRING_KOLICINA);
 	ListCtrl.InsertColumn(4, s, LVCFMT_CENTER, 100);
 	s.LoadString(IDS_STRING_FAKTURNA);
-	ListCtrl.InsertColumn(5, s, LVCFMT_CENTER, 160);
+	ListCtrl.InsertColumn(5, s, LVCFMT_CENTER, 150);
+	s.LoadString(IDS_STRING_NABAVNA);
+	ListCtrl.InsertColumn(6, s, LVCFMT_CENTER, 150);
 	s.LoadString(IDS_STRING_PRODAJNA);
-	ListCtrl.InsertColumn(6, s, LVCFMT_CENTER, 160);
+	ListCtrl.InsertColumn(7, s, LVCFMT_CENTER, 150);
 
 	return TRUE;  // return TRUE unless you set the focus to a control
 				  // EXCEPTION: OCX Property Pages should return FALSE
@@ -121,12 +125,39 @@ void DlgNovaPrimka::OnBnClickedDodajNovi()
 		m_artiklSifra = dlg.m_artiklSifra;
 		m_artiklNaziv = dlg.m_artiklNaziv;
 		m_kolicina = dlg.m_kolicina;
+		m_rabat = dlg.m_rabat;
 		m_fakturnaCijena = dlg.m_fakturnaCijena;
 		m_nabavnaCijena = dlg.m_nabavnaCijena;
 		m_vpc = dlg.m_vpc;
 	}
+
+	if (!m_artiklSifra.IsEmpty() && !m_artiklNaziv.IsEmpty())
+	{
+		rb++;
+		const int index = ListCtrl.GetItemCount();
+
+		CString s;
+
+		s.Format(_T("%d"), rb);
+		ListCtrl.InsertItem(index, s);
+		ListCtrl.SetItemText(index, 1, m_artiklSifra);
+		ListCtrl.SetItemText(index, 2, m_artiklNaziv);
+		s.Format(_T("%d"), m_kolicina);
+		ListCtrl.SetItemText(index, 3, s);
+		s.Format(_T("%.2f"), m_fakturnaCijena);
+		ListCtrl.SetItemText(index, 4, s);
+		s.Format(_T("%.2f"), m_nabavnaCijena);
+		ListCtrl.SetItemText(index, 5, s);
+		s.Format(_T("%.2f"), m_vpc);
+		ListCtrl.SetItemText(index, 6, s);
+	}
+
+	m_artiklSifra = _T("");
+	m_artiklNaziv = _T("");
 }
 
 
+void DlgNovaPrimka::OnBnClickedSpremi()
+{
 
-
+}

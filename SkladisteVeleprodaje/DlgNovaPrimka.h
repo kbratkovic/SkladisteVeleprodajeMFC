@@ -37,4 +37,7 @@ public:
 	double m_fakturnaCijena;
 	double m_nabavnaCijena;
 	double m_vpc;
+
+	long rb = 0;
+	afx_msg void OnBnClickedSpremi();
 };
