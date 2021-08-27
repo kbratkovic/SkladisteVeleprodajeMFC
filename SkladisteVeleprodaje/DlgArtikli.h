@@ -27,6 +27,5 @@ protected:
 public:
 	virtual BOOL OnInitDialog();
 	afx_msg void OnBnClickedDodajNoviArtikl();
-	afx_msg void OnBnClickedIzmijeniArtikl();
 	CButton m_btnDodajArtikl;
 };

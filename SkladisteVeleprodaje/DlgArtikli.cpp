@@ -31,7 +31,6 @@ void DlgArtikli::DoDataExchange(CDataExchange* pDX)
 
 BEGIN_MESSAGE_MAP(DlgArtikli, CDialogEx)
 	ON_BN_CLICKED(IDB_DODAJ_NOVI_ARTIKL, &DlgArtikli::OnBnClickedDodajNoviArtikl)
-	ON_BN_CLICKED(IDB_IZMIJENI_ARTIKL, &DlgArtikli::OnBnClickedIzmijeniArtikl)
 END_MESSAGE_MAP()
 
 
@@ -100,10 +99,4 @@ void DlgArtikli::OnBnClickedDodajNoviArtikl()
 	dlg.DoModal();
 
 	// TODO: Add your control notification handler code here
-}
-
-
-void DlgArtikli::OnBnClickedIzmijeniArtikl()
-{
-
 }
