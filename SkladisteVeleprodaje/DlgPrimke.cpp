@@ -69,7 +69,7 @@ BOOL DlgPrimke::OnInitDialog()
 
 	RcSetPrimke.Close();
 
-	ListCtrl.SetExtendedStyle(LVS_EX_FULLROWSELECT);
+	//ListCtrl.SetExtendedStyle(LVS_EX_FULLROWSELECT);
 	// TODO:  Add extra initialization here
 
 	return TRUE;  // return TRUE unless you set the focus to a control
