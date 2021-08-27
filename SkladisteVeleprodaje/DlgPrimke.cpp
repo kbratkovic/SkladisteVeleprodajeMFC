@@ -6,6 +6,7 @@
 #include "DlgPrimke.h"
 #include "afxdialogex.h"
 #include "PrimkeSet.h"
+#include "DlgNovaPrimka.h"
 
 
 // DlgPrimke dialog
@@ -30,6 +31,7 @@ void DlgPrimke::DoDataExchange(CDataExchange* pDX)
 
 
 BEGIN_MESSAGE_MAP(DlgPrimke, CDialogEx)
+	ON_BN_CLICKED(IDB_DODAJ_NOVU_PRIMKU, &DlgPrimke::OnBnClickedDodajNovuPrimku)
 END_MESSAGE_MAP()
 
 
@@ -74,4 +76,17 @@ BOOL DlgPrimke::OnInitDialog()
 
 	return TRUE;  // return TRUE unless you set the focus to a control
 				  // EXCEPTION: OCX Property Pages should return FALSE
+}
+
+
+void DlgPrimke::OnBnClickedDodajNovuPrimku()
+{
+	DlgPrimke dlg;
+
+	DlgNovaPrimka dlgNovaPrimka;
+	dlgNovaPrimka.DoModal();
+
+	EndDialog(1);
+	dlg.DoModal();
+	// TODO: Add your control notification handler code here
 }
