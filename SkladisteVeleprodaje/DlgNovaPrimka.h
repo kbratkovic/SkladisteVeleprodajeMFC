@@ -26,12 +26,15 @@ public:
 	afx_msg void OnBnClickedOdaberiKlijenta();
 	CListCtrl ListCtrl;
 	CEdit m_edit_datum;
+	CString m_datum;
 	CEdit m_edit_nazivKlijenta;
 	CString m_nazivKlijenta;
 	CEdit m_edit_rbPrimke;
 
 	CString m_artiklSifra;
+	CString m_artiklSifraIzCListCtrl;
 	CString m_artiklNaziv;
+	//CString m_artiklNazivZaRecSet;
 	long m_kolicina;
 	double m_rabat;
 	double m_fakturnaCijena;

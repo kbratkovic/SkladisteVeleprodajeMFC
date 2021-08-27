@@ -74,8 +74,8 @@ BOOL DlgNovaPrimka::OnInitDialog()
 	RecSetPrimke.Close();
 
 	CTime t = CTime::GetCurrentTime();
-	CString formatDate = t.Format("%d.%m.%Y.");
-	m_edit_datum.SetWindowTextW(formatDate);
+	m_datum = t.Format("%d.%m.%Y.");
+	m_edit_datum.SetWindowTextW(m_datum);
 
 	CString s;
 
@@ -111,8 +111,6 @@ void DlgNovaPrimka::OnBnClickedOdaberiKlijenta()
 		m_nazivKlijenta = dlgOdaberiKlijenta.m_nazivKlijenta;
 		UpdateData(FALSE);
 	}
-
-	// TODO: Add your control notification handler code here
 }
 
 
@@ -152,6 +150,7 @@ void DlgNovaPrimka::OnBnClickedDodajNovi()
 		ListCtrl.SetItemText(index, 6, s);
 	}
 
+	m_artiklSifraIzCListCtrl = m_artiklSifra;
 	m_artiklSifra = _T("");
 	m_artiklNaziv = _T("");
 }
@@ -159,5 +158,67 @@ void DlgNovaPrimka::OnBnClickedDodajNovi()
 
 void DlgNovaPrimka::OnBnClickedSpremi()
 {
+	if (!m_nazivKlijenta.IsEmpty() && ListCtrl.GetItemCount() != 0)
+	{
+		PrimkeSet RecSetPrimke;
+		long iduciID = 1;
+		CTime datum = CTime::GetCurrentTime();
+
+		if (!RecSetPrimke.IsOpen())
+		{
+			RecSetPrimke.Open();
+		}
+
+		if (!RecSetPrimke.IsBOF() && !RecSetPrimke.IsEOF())
+		{
+			iduciID = RecSetPrimke.MaxID() + 1;
+		}
+
+		RecSetPrimke.AddNew();
+
+		RecSetPrimke.m_rb = iduciID;
+		RecSetPrimke.m_datum = datum;
+		RecSetPrimke.m_nazivKlijenta = m_nazivKlijenta;
+
+		RecSetPrimke.Update();
+		RecSetPrimke.Close();
+		
+
+
+		ArtikliSet RecSetArtikli;
+
+		if (!RecSetArtikli.IsOpen())
+		{
+			RecSetArtikli.Open();
+		}
+
+		for (int i = 0; i < ListCtrl.GetItemCount(); i++)
+		{
+			CString sifraCListCtrl = ListCtrl.GetItemText(i, 1);
+			CString kolicinaCListCtrl = ListCtrl.GetItemText(i, 3);
+
+			long longKolicinaCListCtrl = _wtol(kolicinaCListCtrl);
+
+			while (!RecSetArtikli.IsBOF() && !RecSetArtikli.IsEOF())
+			{
+				if (sifraCListCtrl == RecSetArtikli.m_sifra)
+				{
+					RecSetArtikli.Edit();
+					RecSetArtikli.m_stanje += longKolicinaCListCtrl;
+					RecSetArtikli.Update();
+				}
+				RecSetArtikli.MoveNext();
+			}
+			RecSetArtikli.MoveFirst();
+		}
+		RecSetArtikli.Close();
+		EndDialog(1);
+	}
+	else
+	{
+		CString s;
+		s.LoadString(IDS_STRING_OBAVEZAN_UNOS_PODATAKA);
+		MessageBox(s);
+	}
 
 }
