@@ -48,7 +48,7 @@ BOOL DlgPrimke::OnInitDialog()
 	s.LoadString(IDS_STRING_ID);
 	ListCtrl.InsertColumn(1, s, LVCFMT_LEFT, 60);
 	s.LoadString(IDS_STRING_DATUM);
-	ListCtrl.InsertColumn(2, s, LVCFMT_CENTER, 180);
+	ListCtrl.InsertColumn(2, s, LVCFMT_CENTER, 200);
 	s.LoadString(IDS_STRING_NAZIV_KLIJENTA);
 	ListCtrl.InsertColumn(3, s, LVCFMT_CENTER, 350);
 
@@ -57,7 +57,7 @@ BOOL DlgPrimke::OnInitDialog()
 		const int index = ListCtrl.GetItemCount();
 
 		CTime datum = RcSetPrimke.m_datum;
-		CString sDatum = datum.Format(_T("%d.%m.%Y"));
+		CString sDatum = datum.Format(_T("%d.%m.%Y."));
 
 		s.Format(_T("%d"), RcSetPrimke.m_rb);
 		ListCtrl.InsertItem(index, s);
