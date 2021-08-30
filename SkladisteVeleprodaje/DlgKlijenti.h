@@ -26,4 +26,9 @@ public:
 	void PrikaziKlijente();
 	CListCtrl ListCtrl;
 	afx_msg void OnBnClickedUrediKlijenta();
+
+	CString m_nazivKlijenta;
+	CString m_oib;
+	CString m_adresa;
+	CString m_telefon;
 };

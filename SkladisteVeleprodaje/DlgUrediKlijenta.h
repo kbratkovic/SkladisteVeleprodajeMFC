@@ -20,4 +20,10 @@ protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 
 	DECLARE_MESSAGE_MAP()
+public:
+	CString m_nazivKlijenta;
+	CString m_oib;
+	CString m_adresa;
+	CString m_telefon;
+	virtual BOOL OnInitDialog();
 };

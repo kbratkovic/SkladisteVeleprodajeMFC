@@ -27,6 +27,10 @@ void DlgKlijenti::DoDataExchange(CDataExchange* pDX)
 {
 	CDialogEx::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_LIST1, ListCtrl);
+	DDX_Text(pDX, IDC_LIST1, m_nazivKlijenta);
+	DDX_Text(pDX, IDC_LIST1, m_oib);
+	DDX_Text(pDX, IDC_LIST1, m_adresa);
+	DDX_Text(pDX, IDC_LIST1, m_telefon);
 }
 
 
@@ -86,7 +90,6 @@ void DlgKlijenti::PrikaziKlijente()
 	RecSetKlijenti.Close();
 
 	ListCtrl.SetExtendedStyle(LVS_EX_FULLROWSELECT);
-	
 }
 
 void DlgKlijenti::OnBnClickedDodajNovogKlijenta()
@@ -104,5 +107,31 @@ void DlgKlijenti::OnBnClickedDodajNovogKlijenta()
 void DlgKlijenti::OnBnClickedUrediKlijenta()
 {
 	DlgUrediKlijenta dlgUrediKlijenta;
-	dlgUrediKlijenta.DoModal();
+	CString s;
+
+	POSITION pos = ListCtrl.GetFirstSelectedItemPosition();
+	if (pos == NULL)
+	{
+		s.LoadString(IDS_STRING_OBAVEZAN_UNOS_KLIJENTA);
+		MessageBox(s);
+	}
+	else
+	{
+		while (pos)
+		{
+			int nItem = ListCtrl.GetNextSelectedItem(pos);
+			m_nazivKlijenta = ListCtrl.GetItemText(nItem, 1);
+			m_oib = ListCtrl.GetItemText(nItem, 2);
+			m_adresa = ListCtrl.GetItemText(nItem, 3);
+			m_telefon = ListCtrl.GetItemText(nItem, 4);
+		}
+
+		dlgUrediKlijenta.m_nazivKlijenta = m_nazivKlijenta;
+		dlgUrediKlijenta.m_oib = m_oib;
+		dlgUrediKlijenta.m_adresa = m_adresa;
+		dlgUrediKlijenta.m_telefon = m_telefon;
+
+		dlgUrediKlijenta.DoModal();
+	}
+
 }
