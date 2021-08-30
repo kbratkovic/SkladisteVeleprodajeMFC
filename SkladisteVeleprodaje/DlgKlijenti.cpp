@@ -7,7 +7,7 @@
 #include "afxdialogex.h"
 #include "KlijentiSet.h"
 #include "DlgNoviKlijent.h"
-
+#include "DlgUrediKlijenta.h"
 
 // DlgKlijenti dialog
 
@@ -32,6 +32,7 @@ void DlgKlijenti::DoDataExchange(CDataExchange* pDX)
 
 BEGIN_MESSAGE_MAP(DlgKlijenti, CDialogEx)
 	ON_BN_CLICKED(IDB_DODAJ_NOVOG_KLIJENTA, &DlgKlijenti::OnBnClickedDodajNovogKlijenta)
+	ON_BN_CLICKED(IDC_BUTTON_UREDI_KLIJENTA, &DlgKlijenti::OnBnClickedUrediKlijenta)
 END_MESSAGE_MAP()
 
 
@@ -97,4 +98,11 @@ void DlgKlijenti::OnBnClickedDodajNovogKlijenta()
 
 	EndDialog(1);
 	dlg.DoModal();
+}
+
+
+void DlgKlijenti::OnBnClickedUrediKlijenta()
+{
+	DlgUrediKlijenta dlgUrediKlijenta;
+	dlgUrediKlijenta.DoModal();
 }

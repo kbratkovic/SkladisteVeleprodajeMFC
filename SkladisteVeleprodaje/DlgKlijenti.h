@@ -25,4 +25,5 @@ public:
 	afx_msg void OnBnClickedDodajNovogKlijenta();
 	void PrikaziKlijente();
 	CListCtrl ListCtrl;
+	afx_msg void OnBnClickedUrediKlijenta();
 };
