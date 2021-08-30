@@ -26,13 +26,7 @@ END_MESSAGE_MAP()
 
 CSkladisteVeleprodajeApp::CSkladisteVeleprodajeApp() noexcept
 {
-
-	// TODO: replace application ID string below with unique ID string; recommended
-	// format for string is CompanyName.ProductName.SubProduct.VersionInformation
 	SetAppID(_T("SkladisteVeleprodaje.AppID.NoVersion"));
-
-	// TODO: add construction code here,
-	// Place all significant initialization in InitInstance
 }
 
 // The one and only CSkladisteVeleprodajeApp object
@@ -85,7 +79,6 @@ BOOL CSkladisteVeleprodajeApp::InitInstance()
 
 int CSkladisteVeleprodajeApp::ExitInstance()
 {
-	//TODO: handle additional resources you may have added
 	return CWinApp::ExitInstance();
 }
 

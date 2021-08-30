@@ -81,7 +81,6 @@ void CChildView::OnKlijentiSviKlijenti()
 {
 	DlgKlijenti dlgKlijenti;
 	dlgKlijenti.DoModal();
-	// TODO: Add your command handler code here
 }
 
 
@@ -89,7 +88,6 @@ void CChildView::OnPrimkeNovaprimka()
 {
 	DlgNovaPrimka dlgNovaPrimka;
 	dlgNovaPrimka.DoModal();
-	// TODO: Add your command handler code here
 }
 
 
@@ -97,7 +95,6 @@ void CChildView::OnPrimkeSvePrimke()
 {
 	DlgPrimke dlgPrimke;
 	dlgPrimke.DoModal();
-	// TODO: Add your command handler code here
 }
 
 

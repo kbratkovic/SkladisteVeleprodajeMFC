@@ -46,7 +46,6 @@ void DlgNoviKlijent::OnBnClickedSpremi()
 {
 	UnesiNovogKlijenta();
 	EndDialog(1);
-	// TODO: Add your control notification handler code here
 }
 
 

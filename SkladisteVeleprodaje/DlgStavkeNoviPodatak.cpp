@@ -54,8 +54,6 @@ END_MESSAGE_MAP()
 
 void DlgStavkeNoviPodatak::OnBnClickedOdaberiArtikl()
 {
-	//UpdateData(TRUE);
-
 	DlgOdaberiArtikl dlgOdaberiArtikl;
 
 	dlgOdaberiArtikl.m_sifraArtikla = m_artiklSifra;
@@ -67,7 +65,6 @@ void DlgStavkeNoviPodatak::OnBnClickedOdaberiArtikl()
 		m_artiklNaziv = dlgOdaberiArtikl.m_nazivArtikla;
 		UpdateData(FALSE);
 	}
-	// TODO: Add your control notification handler code here
 }
 
 

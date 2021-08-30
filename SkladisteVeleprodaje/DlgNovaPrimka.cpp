@@ -1,5 +1,4 @@
 // DlgNovaPrimka.cpp : implementation file
-//
 
 #include "pch.h"
 #include "SkladisteVeleprodaje.h"
@@ -18,7 +17,6 @@ IMPLEMENT_DYNAMIC(DlgNovaPrimka, CDialogEx)
 
 DlgNovaPrimka::DlgNovaPrimka(CWnd* pParent /*=nullptr*/)
 	: CDialogEx(IDD_PODACI_O_PRIMKAMA_NOVI_PODATAK, pParent)
-	//, m_nazivKlijenta(_T(""))
 {
 	
 }

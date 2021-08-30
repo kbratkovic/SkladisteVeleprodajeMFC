@@ -45,10 +45,7 @@ END_MESSAGE_MAP()
 void DlgNoviArtikl::OnBnClickedSpremi()
 {
 	UnesiNoviArtikl();
-	
 	EndDialog(1);
-
-	// TODO: Add your control notification handler code here
 }
 
 void DlgNoviArtikl::UnesiNoviArtikl()
@@ -95,8 +92,6 @@ void DlgNoviArtikl::UnesiNoviArtikl()
 BOOL DlgNoviArtikl::OnInitDialog()
 {
 	CDialogEx::OnInitDialog();
-
-	// TODO:  Add extra initialization here
 
 	return TRUE;  // return TRUE unless you set the focus to a control
 				  // EXCEPTION: OCX Property Pages should return FALSE

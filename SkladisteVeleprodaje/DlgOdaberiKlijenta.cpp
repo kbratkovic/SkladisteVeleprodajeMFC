@@ -107,5 +107,4 @@ void DlgOdaberiKlijenta::OnBnClickedOdaberi()
 	}
 	m_nazivKlijenta = nazivKlijenta;
 	EndDialog(1);
-	// TODO: Add your control notification handler code here
 }

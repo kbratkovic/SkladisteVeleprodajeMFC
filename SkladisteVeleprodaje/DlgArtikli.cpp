@@ -81,8 +81,6 @@ BOOL DlgArtikli::OnInitDialog()
 
 	ListCtrl.SetExtendedStyle(ListCtrl.GetExtendedStyle() | LVS_EX_FULLROWSELECT);
 	
-	// TODO:  Add extra initialization here
-
 	return TRUE;  // return TRUE unless you set the focus to a control
 				  // EXCEPTION: OCX Property Pages should return FALSE
 }
@@ -97,6 +95,4 @@ void DlgArtikli::OnBnClickedDodajNoviArtikl()
 	
 	EndDialog(1);
 	dlg.DoModal();
-
-	// TODO: Add your control notification handler code here
 }

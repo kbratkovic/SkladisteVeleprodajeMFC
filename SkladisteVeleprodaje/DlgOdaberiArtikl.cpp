@@ -83,8 +83,6 @@ BOOL DlgOdaberiArtikl::OnInitDialog()
 
 	ListCtrl.SetExtendedStyle(ListCtrl.GetExtendedStyle() | LVS_EX_FULLROWSELECT);
 
-	// TODO:  Add extra initialization here
-
 	return TRUE;  // return TRUE unless you set the focus to a control
 				  // EXCEPTION: OCX Property Pages should return FALSE
 }
@@ -112,5 +110,4 @@ void DlgOdaberiArtikl::OnBnClickedOdaberi()
 	m_sifraArtikla = sifraArtikla;
 	m_nazivArtikla = nazivArtikla;
 	EndDialog(1);
-	// TODO: Add your control notification handler code here
 }

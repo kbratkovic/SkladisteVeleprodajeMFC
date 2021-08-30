@@ -85,9 +85,6 @@ void DlgKlijenti::PrikaziKlijente()
 	RecSetKlijenti.Close();
 
 	ListCtrl.SetExtendedStyle(LVS_EX_FULLROWSELECT);
-
-	// TODO:  Add extra initialization here
-
 	
 }
 
@@ -100,5 +97,4 @@ void DlgKlijenti::OnBnClickedDodajNovogKlijenta()
 
 	EndDialog(1);
 	dlg.DoModal();
-	// TODO: Add your control notification handler code here
 }
