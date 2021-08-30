@@ -2,8 +2,8 @@
 // Microsoft Visual C++ generated include file.
 // Used by SkladisteVeleprodaje.rc
 //
-#define IDB_IZMIJENI_ARTIKL             3
-#define IDOK2                           3
+#define IDB_IZMIJENI_ARTIKL             1
+#define IDOK2                           2
 #define IDB_IZMIJENI_KLIJENTA           3
 #define IDB_IZBRISI_ARTIKL              4
 #define IDD_ABOUTBOX                    100
@@ -36,19 +36,19 @@
 
 #define IDD_PODACI_O_KLIJENTIMA_NOVI_PODATAK 311
 #define IDD_PODACI_O_ARTIKLIMA_NOVI_PODATAK 313
-#define IDD_PODACI_O_ARTIKLIMA_PREGLED  319
-#define IDD_PODACI_O_ARTIKLIMA_ARTIKLI  319
-#define IDD_PODACI_O_ARTIKLIMA_SVI_ARTIKLI 319
-#define IDD_DIALOG1                     321
-#define IDD_PODACI_O_KLIJENTIMA_SVI_KLIJENTI 321
-#define IDD_PODACI_O_PRIMKAMA_SVE_PRIMKE 323
-#define IDD_PODACI_O_PRIMKAMA_NOVI_PODATAK 325
-#define IDD_DIALOG2                     327
-#define IDD_STAVKE_NOVI_PODATAK         327
-#define IDD_DIALOG3                     329
-#define IDD_PODACI_O_KLIJENTIMA_ODABERI_KLIJENTA 329
-#define IDD_DIALOG4                     331
-#define IDD_PODACI_O_ARTIKLIMA_ODABERI_ARTIKL 331
+#define IDD_PODACI_O_ARTIKLIMA_PREGLED  314
+#define IDD_PODACI_O_ARTIKLIMA_ARTIKLI  315
+#define IDD_PODACI_O_ARTIKLIMA_SVI_ARTIKLI 316
+#define IDD_DIALOG1                     317
+#define IDD_PODACI_O_KLIJENTIMA_SVI_KLIJENTI 318
+#define IDD_PODACI_O_PRIMKAMA_SVE_PRIMKE 319
+#define IDD_PODACI_O_PRIMKAMA_NOVI_PODATAK 320
+#define IDD_DIALOG2                     321
+#define IDD_STAVKE_NOVI_PODATAK         322
+#define IDD_DIALOG3                     323
+#define IDD_PODACI_O_KLIJENTIMA_ODABERI_KLIJENTA 324
+#define IDD_DIALOG4                     325
+#define IDD_PODACI_O_ARTIKLIMA_ODABERI_ARTIKL 326
 #define IDC_EDIT_SIFRA_ARTIKLA          1000
 #define IDC_EDIT_NAZIV_KLIJENTA         1001
 #define IDC_EDIT_OIB                    1002
