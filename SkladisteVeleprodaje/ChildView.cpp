@@ -72,8 +72,8 @@ void CChildView::OnArtikliSviArtikli()
 
 void CChildView::OnKlijentiNoviklijent()
 {
-	DlgNoviKlijent dlgKlijent;
-	dlgKlijent.DoModal();
+	DlgNoviKlijent dlgNoviKlijent;
+	dlgNoviKlijent.DoModal();
 }
 
 

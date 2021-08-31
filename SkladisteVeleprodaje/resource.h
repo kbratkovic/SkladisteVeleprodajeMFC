@@ -59,8 +59,8 @@
 #define IDC_LIST1                       1012
 #define IDB_DODAJ_NOVI_ARTIKL           1014
 #define IDB_SPREMI                      1015
-#define IDB_DODAJ_NOVI_ARTIKL2          1015
-#define IDB_UREDI_ARTIKL                1015
+#define IDB_DODAJ_NOVI_ARTIKL2          1039
+#define IDB_UREDI_ARTIKL                1040
 #define IDB_DODAJ_NOVOG_KLIJENTA        1016
 #define IDB_DODAJ_NOVU_PRIMKU           1017
 #define IDB_OTVORI_PRIMKU               1018

@@ -12,7 +12,7 @@
 IMPLEMENT_DYNAMIC(DlgArtikli, CDialogEx)
 
 DlgArtikli::DlgArtikli(CWnd* pParent /*=nullptr*/)
-	: CDialogEx(IDD_PODACI_O_ARTIKLIMA_ARTIKLI, pParent)
+	: CDialogEx(IDD_PODACI_O_ARTIKLIMA_SVI_ARTIKLI, pParent)
 {
 
 }
