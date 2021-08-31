@@ -26,4 +26,9 @@ public:
 	CString m_adresa;
 	CString m_telefon;
 	virtual BOOL OnInitDialog();
+	afx_msg void OnBnClickedSpremi();
+	CString nazivKlijenta;
+	CString oib;
+	CString adresa;
+	CString telefon;
 };
