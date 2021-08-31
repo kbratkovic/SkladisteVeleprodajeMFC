@@ -25,7 +25,9 @@ protected:
 
 	DECLARE_MESSAGE_MAP()
 public:
+	CButton m_btnDodajArtikl;
 	virtual BOOL OnInitDialog();
 	afx_msg void OnBnClickedDodajNoviArtikl();
-	CButton m_btnDodajArtikl;
+	void PrikaziListu();
+	void PrikaziArtikle();
 };

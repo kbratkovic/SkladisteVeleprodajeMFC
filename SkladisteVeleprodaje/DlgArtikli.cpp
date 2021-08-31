@@ -41,11 +41,18 @@ BOOL DlgArtikli::OnInitDialog()
 {
 	CDialogEx::OnInitDialog();
 
+	PrikaziListu();
+	PrikaziArtikle();
+
+	return TRUE;  // return TRUE unless you set the focus to a control
+				  // EXCEPTION: OCX Property Pages should return FALSE
+}
+
+
+void DlgArtikli::PrikaziListu()
+{
 	CString s;
 
-	ArtikliSet RcSetArtikli;
-	RcSetArtikli.Open();
-	
 	s.LoadString(IDS_STRING_ID);
 	ListCtrl.InsertColumn(1, s, LVCFMT_LEFT, 60);
 	s.LoadString(IDS_STRING_SIFRA);
@@ -58,12 +65,19 @@ BOOL DlgArtikli::OnInitDialog()
 	ListCtrl.InsertColumn(5, s, LVCFMT_CENTER, 100);
 	s.LoadString(IDS_STRING_CIJENA);
 	ListCtrl.InsertColumn(6, s, LVCFMT_CENTER, 120);
+}
 
+
+void DlgArtikli::PrikaziArtikle()
+{
+	ArtikliSet RcSetArtikli;
+	RcSetArtikli.Open();
 
 	while (!RcSetArtikli.IsEOF())
 	{
 		const int index = ListCtrl.GetItemCount();
 
+		CString s;
 		s.Format(_T("%d"), RcSetArtikli.m_rb);
 		ListCtrl.InsertItem(index, s);
 		ListCtrl.SetItemText(index, 1, RcSetArtikli.m_sifra);
@@ -80,19 +94,13 @@ BOOL DlgArtikli::OnInitDialog()
 	RcSetArtikli.Close();
 
 	ListCtrl.SetExtendedStyle(ListCtrl.GetExtendedStyle() | LVS_EX_FULLROWSELECT);
-	
-	return TRUE;  // return TRUE unless you set the focus to a control
-				  // EXCEPTION: OCX Property Pages should return FALSE
 }
-
 
 void DlgArtikli::OnBnClickedDodajNoviArtikl()
 {
-	DlgArtikli dlg;
-
 	DlgNoviArtikl dlgNoviArtikl;
+
+	ListCtrl.DeleteAllItems();
 	dlgNoviArtikl.DoModal();
-	
-	EndDialog(1);
-	dlg.DoModal();
+	PrikaziArtikle();
 }
