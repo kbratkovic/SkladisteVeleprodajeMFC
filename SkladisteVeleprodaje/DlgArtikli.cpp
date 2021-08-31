@@ -4,6 +4,7 @@
 #include "pch.h"
 #include "SkladisteVeleprodaje.h"
 #include "DlgArtikli.h"
+#include "DlgUrediArtikl.h"
 #include "afxdialogex.h"
 #include <string> 
 
@@ -31,6 +32,7 @@ void DlgArtikli::DoDataExchange(CDataExchange* pDX)
 
 BEGIN_MESSAGE_MAP(DlgArtikli, CDialogEx)
 	ON_BN_CLICKED(IDB_DODAJ_NOVI_ARTIKL, &DlgArtikli::OnBnClickedDodajNoviArtikl)
+	ON_BN_CLICKED(IDB_UREDI_ARTIKL, &DlgArtikli::OnBnClickedUrediArtikl)
 END_MESSAGE_MAP()
 
 
@@ -103,4 +105,11 @@ void DlgArtikli::OnBnClickedDodajNoviArtikl()
 	ListCtrl.DeleteAllItems();
 	dlgNoviArtikl.DoModal();
 	PrikaziArtikle();
+}
+
+
+void DlgArtikli::OnBnClickedUrediArtikl()
+{
+	DlgUrediArtikl dlgUrediArtikl;
+	dlgUrediArtikl.DoModal();
 }

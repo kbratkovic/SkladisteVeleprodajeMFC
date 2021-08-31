@@ -47,6 +47,8 @@
 #define IDD_DIALOG4                     325
 #define IDD_PODACI_O_ARTIKLIMA_ODABERI_ARTIKL 326
 #define IDD_PODACI_O_KLIJENTIMA_UREDI_KLIJENTA 333
+#define IDD_DIALOG5                     335
+#define IDD_PODACI_O_ARTIKLIMA_UREDI_ARTIKL 335
 #define IDC_EDIT_SIFRA_ARTIKLA          1000
 #define IDC_EDIT_NAZIV_KLIJENTA         1001
 #define IDC_EDIT_OIB                    1002
@@ -59,8 +61,6 @@
 #define IDC_LIST1                       1012
 #define IDB_DODAJ_NOVI_ARTIKL           1014
 #define IDB_SPREMI                      1015
-#define IDB_DODAJ_NOVI_ARTIKL2          1039
-#define IDB_UREDI_ARTIKL                1040
 #define IDB_DODAJ_NOVOG_KLIJENTA        1016
 #define IDB_DODAJ_NOVU_PRIMKU           1017
 #define IDB_OTVORI_PRIMKU               1018
@@ -83,9 +83,12 @@
 #define IDC_BUTTON                      1034
 #define IDC_BUTTON_UREDI_KLIJENTA       1034
 #define IDC_EDIT1                       1035
+#define IDC_EDIT_SIFRA                  1035
 #define IDC_EDIT2                       1036
 #define IDC_EDIT3                       1037
 #define IDC_EDIT4                       1038
+#define IDB_DODAJ_NOVI_ARTIKL2          1039
+#define IDB_UREDI_ARTIKL                1040
 #define ID_ARTIKLI_NOVIARTIKL           32771
 #define ID_ARTIKLI_ARTIKLI              32772
 #define ID_KLIJENTI_NOVIKLIJENT         32773
@@ -100,7 +103,7 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        335
+#define _APS_NEXT_RESOURCE_VALUE        337
 #define _APS_NEXT_COMMAND_VALUE         32780
 #define _APS_NEXT_CONTROL_VALUE         1036
 #define _APS_NEXT_SYMED_VALUE           310

@@ -30,4 +30,5 @@ public:
 	afx_msg void OnBnClickedDodajNoviArtikl();
 	void PrikaziListu();
 	void PrikaziArtikle();
+	afx_msg void OnBnClickedUrediArtikl();
 };

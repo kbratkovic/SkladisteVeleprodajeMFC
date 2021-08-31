@@ -193,6 +193,7 @@
     <ClInclude Include="DlgOdaberiKlijenta.h" />
     <ClInclude Include="DlgPrimke.h" />
     <ClInclude Include="DlgStavkeNoviPodatak.h" />
+    <ClInclude Include="DlgUrediArtikl.h" />
     <ClInclude Include="DlgUrediKlijenta.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="KlijentiSet.h" />
@@ -216,6 +217,7 @@
     <ClCompile Include="DlgOdaberiKlijenta.cpp" />
     <ClCompile Include="DlgPrimke.cpp" />
     <ClCompile Include="DlgStavkeNoviPodatak.cpp" />
+    <ClCompile Include="DlgUrediArtikl.cpp" />
     <ClCompile Include="DlgUrediKlijenta.cpp" />
     <ClCompile Include="KlijentiSet.cpp" />
     <ClCompile Include="MainFrm.cpp" />
