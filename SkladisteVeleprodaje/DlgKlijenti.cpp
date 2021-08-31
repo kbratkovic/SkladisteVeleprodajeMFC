@@ -47,6 +47,7 @@ BOOL DlgKlijenti::OnInitDialog()
 {
 	CDialogEx::OnInitDialog();
 
+	PrikaziListu();
 	PrikaziKlijente();
 
 	return TRUE;  // return TRUE unless you set the focus to a control
@@ -54,12 +55,9 @@ BOOL DlgKlijenti::OnInitDialog()
 }
 
 
-void DlgKlijenti::PrikaziKlijente()
+void DlgKlijenti::PrikaziListu()
 {
 	CString s;
-
-	KlijentiSet RecSetKlijenti;
-	RecSetKlijenti.Open();
 
 	s.LoadString(IDS_STRING_KLIJENT_ID);
 	ListCtrl.InsertColumn(1, s, LVCFMT_LEFT, 60);
@@ -71,12 +69,18 @@ void DlgKlijenti::PrikaziKlijente()
 	ListCtrl.InsertColumn(4, s, LVCFMT_CENTER, 160);
 	s.LoadString(IDS_STRING_TELEFON);
 	ListCtrl.InsertColumn(5, s, LVCFMT_CENTER, 160);
+}
 
+void DlgKlijenti::PrikaziKlijente()
+{
+	KlijentiSet RecSetKlijenti;
+	RecSetKlijenti.Open();
 
 	while (!RecSetKlijenti.IsEOF())
 	{
 		const int index = ListCtrl.GetItemCount();
 
+		CString s;
 		s.Format(_T("%d"), RecSetKlijenti.m_rb);
 		ListCtrl.InsertItem(index, s);
 		ListCtrl.SetItemText(index, 1, RecSetKlijenti.m_nazivKlijenta);
@@ -94,13 +98,10 @@ void DlgKlijenti::PrikaziKlijente()
 
 void DlgKlijenti::OnBnClickedDodajNovogKlijenta()
 {
-	DlgKlijenti dlg;
-
 	DlgNoviKlijent dlgNoviKlijent;
+	ListCtrl.DeleteAllItems();
 	dlgNoviKlijent.DoModal();
-
-	EndDialog(1);
-	dlg.DoModal();
+	PrikaziKlijente();
 }
 
 
@@ -131,7 +132,8 @@ void DlgKlijenti::OnBnClickedUrediKlijenta()
 		dlgUrediKlijenta.m_adresa = m_adresa;
 		dlgUrediKlijenta.m_telefon = m_telefon;
 
+		ListCtrl.DeleteAllItems();
 		dlgUrediKlijenta.DoModal();
+		PrikaziKlijente();
 	}
-
 }

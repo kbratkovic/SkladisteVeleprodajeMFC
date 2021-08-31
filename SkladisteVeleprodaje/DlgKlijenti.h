@@ -21,11 +21,12 @@ protected:
 
 	DECLARE_MESSAGE_MAP()
 public:
+	CListCtrl ListCtrl;
 	virtual BOOL OnInitDialog();
 	afx_msg void OnBnClickedDodajNovogKlijenta();
-	void PrikaziKlijente();
-	CListCtrl ListCtrl;
 	afx_msg void OnBnClickedUrediKlijenta();
+	void PrikaziListu();
+	void PrikaziKlijente();
 
 	CString m_nazivKlijenta;
 	CString m_oib;
