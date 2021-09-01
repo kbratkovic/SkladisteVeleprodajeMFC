@@ -111,5 +111,32 @@ void DlgArtikli::OnBnClickedDodajNoviArtikl()
 void DlgArtikli::OnBnClickedUrediArtikl()
 {
 	DlgUrediArtikl dlgUrediArtikl;
-	dlgUrediArtikl.DoModal();
+	CString s;
+
+	POSITION pos = ListCtrl.GetFirstSelectedItemPosition();
+	if (pos == NULL)
+	{
+		s.LoadString(IDS_STRING_OBAVEZAN_UNOS_ARTIKLA);
+		MessageBox(s);
+	}
+	else
+	{
+		while (pos)
+		{
+			int nItem = ListCtrl.GetNextSelectedItem(pos);
+			m_sifra = ListCtrl.GetItemText(nItem, 1);
+			m_nazivArtikla = ListCtrl.GetItemText(nItem, 2);
+			m_mjera = ListCtrl.GetItemText(nItem, 3);
+			m_cijena = ListCtrl.GetItemText(nItem, 5);
+		}
+
+		dlgUrediArtikl.m_sifra = m_sifra;
+		dlgUrediArtikl.m_nazivArtikla = m_nazivArtikla;
+		dlgUrediArtikl.m_mjera = m_mjera;
+		dlgUrediArtikl.m_cijena = m_cijena;
+
+		ListCtrl.DeleteAllItems();
+		dlgUrediArtikl.DoModal();
+		PrikaziArtikle();
+	}
 }

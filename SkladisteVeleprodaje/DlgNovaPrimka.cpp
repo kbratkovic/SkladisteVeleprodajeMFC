@@ -210,7 +210,7 @@ void DlgNovaPrimka::OnBnClickedSpremi()
 			RecSetArtikli.MoveFirst();
 		}
 		RecSetArtikli.Close();
-		EndDialog(1);
+		EndDialog(IDOK);
 	}
 	else
 	{

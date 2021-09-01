@@ -31,4 +31,9 @@ public:
 	void PrikaziListu();
 	void PrikaziArtikle();
 	afx_msg void OnBnClickedUrediArtikl();
+
+	CString m_sifra;
+	CString m_nazivArtikla;
+	CString m_mjera;
+	CString m_cijena;
 };
