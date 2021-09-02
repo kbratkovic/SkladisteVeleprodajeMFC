@@ -71,7 +71,7 @@ void DlgStavkeNoviPodatak::OnBnClickedOdaberiArtikl()
 void DlgStavkeNoviPodatak::OnBnClickedSpremi()
 {
 	UpdateData(TRUE);
-	EndDialog(1);
+	EndDialog(IDOK);
 }
 
 

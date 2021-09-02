@@ -109,5 +109,5 @@ void DlgOdaberiArtikl::OnBnClickedOdaberi()
 	}
 	m_sifraArtikla = sifraArtikla;
 	m_nazivArtikla = nazivArtikla;
-	EndDialog(1);
+	EndDialog(IDOK);
 }

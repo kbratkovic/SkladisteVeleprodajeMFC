@@ -45,7 +45,7 @@ END_MESSAGE_MAP()
 void DlgNoviKlijent::OnBnClickedSpremi()
 {
 	UnesiNovogKlijenta();
-	EndDialog(1);
+	EndDialog(IDOK);
 }
 
 

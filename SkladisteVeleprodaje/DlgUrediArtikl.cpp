@@ -85,5 +85,5 @@ void DlgUrediArtikl::OnBnClickedSpremi()
 		}
 		RecSetArtikli.MoveNext();
 	}
-	EndDialog(1);
+	EndDialog(IDOK);
 }

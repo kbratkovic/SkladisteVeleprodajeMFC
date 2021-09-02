@@ -85,5 +85,5 @@ void DlgUrediKlijenta::OnBnClickedSpremi()
 		}
 		RecSetKlijenti.MoveNext();
 	}
-	EndDialog(1);
+	EndDialog(IDOK);
 }

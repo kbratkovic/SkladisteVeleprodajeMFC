@@ -106,5 +106,5 @@ void DlgOdaberiKlijenta::OnBnClickedOdaberi()
 		}
 	}
 	m_nazivKlijenta = nazivKlijenta;
-	EndDialog(1);
+	EndDialog(IDOK);
 }
