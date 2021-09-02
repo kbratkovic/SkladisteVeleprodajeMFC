@@ -26,4 +26,6 @@ public:
 	virtual BOOL OnInitDialog();
 	afx_msg void OnBnClickedDodajNovuPrimku();
 	CListCtrl ListCtrl;
+	void PrikaziListu();
+	void PrikaziPrimke();
 };

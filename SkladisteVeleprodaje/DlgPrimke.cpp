@@ -42,10 +42,27 @@ BOOL DlgPrimke::OnInitDialog()
 {
 	CDialogEx::OnInitDialog();
 
-	CString s;
+	PrikaziListu();
+	PrikaziPrimke();
+	
+	return TRUE;  // return TRUE unless you set the focus to a control
+				  // EXCEPTION: OCX Property Pages should return FALSE
+}
 
-	PrimkeSet RcSetPrimke;
-	RcSetPrimke.Open();
+
+void DlgPrimke::OnBnClickedDodajNovuPrimku()
+{
+	DlgNovaPrimka dlgNovaPrimka;
+
+	ListCtrl.DeleteAllItems();
+	dlgNovaPrimka.DoModal();
+	PrikaziPrimke();
+}
+
+
+void DlgPrimke::PrikaziListu()
+{
+	CString s;
 
 	s.LoadString(IDS_STRING_ID);
 	ListCtrl.InsertColumn(1, s, LVCFMT_LEFT, 60);
@@ -53,6 +70,13 @@ BOOL DlgPrimke::OnInitDialog()
 	ListCtrl.InsertColumn(2, s, LVCFMT_CENTER, 200);
 	s.LoadString(IDS_STRING_NAZIV_KLIJENTA);
 	ListCtrl.InsertColumn(3, s, LVCFMT_CENTER, 350);
+}
+
+
+void DlgPrimke::PrikaziPrimke()
+{
+	PrimkeSet RcSetPrimke;
+	RcSetPrimke.Open();
 
 	while (!RcSetPrimke.IsEOF())
 	{
@@ -61,6 +85,7 @@ BOOL DlgPrimke::OnInitDialog()
 		CTime datum = RcSetPrimke.m_datum;
 		CString sDatum = datum.Format(_T("%d.%m.%Y."));
 
+		CString s;
 		s.Format(_T("%d"), RcSetPrimke.m_rb);
 		ListCtrl.InsertItem(index, s);
 		ListCtrl.SetItemText(index, 1, sDatum);
@@ -72,19 +97,4 @@ BOOL DlgPrimke::OnInitDialog()
 	RcSetPrimke.Close();
 
 	ListCtrl.SetExtendedStyle(LVS_EX_FULLROWSELECT);
-
-	return TRUE;  // return TRUE unless you set the focus to a control
-				  // EXCEPTION: OCX Property Pages should return FALSE
-}
-
-
-void DlgPrimke::OnBnClickedDodajNovuPrimku()
-{
-	DlgPrimke dlg;
-
-	DlgNovaPrimka dlgNovaPrimka;
-	dlgNovaPrimka.DoModal();
-
-	EndDialog(1);
-	dlg.DoModal();
 }
