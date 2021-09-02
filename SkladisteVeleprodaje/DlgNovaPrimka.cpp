@@ -194,8 +194,10 @@ void DlgNovaPrimka::OnBnClickedSpremi()
 		{
 			CString sifraCListCtrl = ListCtrl.GetItemText(i, 1);
 			CString kolicinaCListCtrl = ListCtrl.GetItemText(i, 3);
+			CString prodajnaCijenaCListCtrl = ListCtrl.GetItemText(i, 6);
 
 			long longKolicinaCListCtrl = _wtol(kolicinaCListCtrl);
+			double doubleProdajnaCijenaCListCtrl = _wtof(prodajnaCijenaCListCtrl);
 
 			while (!RecSetArtikli.IsBOF() && !RecSetArtikli.IsEOF())
 			{
@@ -203,6 +205,7 @@ void DlgNovaPrimka::OnBnClickedSpremi()
 				{
 					RecSetArtikli.Edit();
 					RecSetArtikli.m_stanje += longKolicinaCListCtrl;
+					RecSetArtikli.m_cijena = doubleProdajnaCijenaCListCtrl;
 					RecSetArtikli.Update();
 				}
 				RecSetArtikli.MoveNext();
