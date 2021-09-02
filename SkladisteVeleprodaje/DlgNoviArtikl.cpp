@@ -45,7 +45,7 @@ END_MESSAGE_MAP()
 void DlgNoviArtikl::OnBnClickedSpremi()
 {
 	UnesiNoviArtikl();
-	EndDialog(1);
+	//EndDialog(1);
 }
 
 void DlgNoviArtikl::UnesiNoviArtikl()
@@ -76,16 +76,40 @@ void DlgNoviArtikl::UnesiNoviArtikl()
 		iduciID = RecSetArtikli.MaxID() + 1;
 	}
 
-	RecSetArtikli.AddNew();
+	long brojac = 0;
+	RecSetArtikli.MoveFirst();
+	
+	while (!RecSetArtikli.IsBOF() && !RecSetArtikli.IsEOF())
+	{
+		if (sifra == RecSetArtikli.m_sifra)
+		{
+			brojac++;
+		}
+		RecSetArtikli.MoveNext();
+	}
 
-	RecSetArtikli.m_rb = iduciID;
-	RecSetArtikli.m_sifra = sifra;
-	RecSetArtikli.m_nazivArtikla = nazivArtikla;
-	RecSetArtikli.m_mjera = mjera;
-	RecSetArtikli.m_cijena = m_cijena;
+	if (brojac != 0)
+	{
+		CString s;
+		s.LoadString(IDS_STRING_SIFRA_POSTOJI);
+		MessageBox(s);
+	}
+	else
+	{
+		RecSetArtikli.AddNew();
 
-	RecSetArtikli.Update();
-	RecSetArtikli.Close();
+		RecSetArtikli.m_rb = iduciID;
+		RecSetArtikli.m_sifra = sifra;
+		RecSetArtikli.m_nazivArtikla = nazivArtikla;
+		RecSetArtikli.m_mjera = mjera;
+		RecSetArtikli.m_cijena = m_cijena;
+
+		RecSetArtikli.Update();
+		RecSetArtikli.Close();
+
+		EndDialog(IDOK);
+	}
+
 }
 
 
