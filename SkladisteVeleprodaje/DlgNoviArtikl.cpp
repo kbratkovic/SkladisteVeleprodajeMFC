@@ -45,7 +45,6 @@ END_MESSAGE_MAP()
 void DlgNoviArtikl::OnBnClickedSpremi()
 {
 	UnesiNoviArtikl();
-	//EndDialog(1);
 }
 
 void DlgNoviArtikl::UnesiNoviArtikl()
@@ -92,6 +91,12 @@ void DlgNoviArtikl::UnesiNoviArtikl()
 	{
 		CString s;
 		s.LoadString(IDS_STRING_SIFRA_POSTOJI);
+		MessageBox(s);
+	}
+	else if (sifra.IsEmpty())
+	{
+		CString s;
+		s.LoadString(IDS_STRING_SIFRA_PRAZNA);
 		MessageBox(s);
 	}
 	else
