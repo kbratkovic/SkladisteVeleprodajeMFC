@@ -25,7 +25,13 @@ protected:
 public:
 	virtual BOOL OnInitDialog();
 	afx_msg void OnBnClickedDodajNovuPrimku();
+	afx_msg void OnBnClickedUrediPrimku();
 	CListCtrl ListCtrl;
 	void PrikaziListu();
 	void PrikaziPrimke();
+
+	CString m_primkaID;
+	CString m_datum;
+	CString m_nazivKlijenta;
+	CString m_brojRacuna;
 };

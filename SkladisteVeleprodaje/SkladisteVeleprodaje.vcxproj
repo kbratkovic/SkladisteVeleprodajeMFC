@@ -195,6 +195,7 @@
     <ClInclude Include="DlgStavkeNoviPodatak.h" />
     <ClInclude Include="DlgUrediArtikl.h" />
     <ClInclude Include="DlgUrediKlijenta.h" />
+    <ClInclude Include="DlgUrediPrimku.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="KlijentiSet.h" />
     <ClInclude Include="MainFrm.h" />
@@ -220,6 +221,7 @@
     <ClCompile Include="DlgStavkeNoviPodatak.cpp" />
     <ClCompile Include="DlgUrediArtikl.cpp" />
     <ClCompile Include="DlgUrediKlijenta.cpp" />
+    <ClCompile Include="DlgUrediPrimku.cpp" />
     <ClCompile Include="KlijentiSet.cpp" />
     <ClCompile Include="MainFrm.cpp" />
     <ClCompile Include="pch.cpp">

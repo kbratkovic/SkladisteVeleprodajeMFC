@@ -7,6 +7,7 @@
 #include "afxdialogex.h"
 #include "PrimkeSet.h"
 #include "DlgNovaPrimka.h"
+#include "DlgUrediPrimku.h"
 
 
 // DlgPrimke dialog
@@ -32,6 +33,7 @@ void DlgPrimke::DoDataExchange(CDataExchange* pDX)
 
 BEGIN_MESSAGE_MAP(DlgPrimke, CDialogEx)
 	ON_BN_CLICKED(IDB_DODAJ_NOVU_PRIMKU, &DlgPrimke::OnBnClickedDodajNovuPrimku)
+	ON_BN_CLICKED(IDB_UREDI_PRIMKU, &DlgPrimke::OnBnClickedUrediPrimku)
 END_MESSAGE_MAP()
 
 
@@ -100,4 +102,32 @@ void DlgPrimke::PrikaziPrimke()
 	RcSetPrimke.Close();
 
 	ListCtrl.SetExtendedStyle(LVS_EX_FULLROWSELECT);
+}
+
+void DlgPrimke::OnBnClickedUrediPrimku()
+{
+	DlgUrediPrimku dlgUrediPrimku;
+	CString s;
+
+	POSITION pos = ListCtrl.GetFirstSelectedItemPosition();
+	if (pos == NULL)
+	{
+		s.LoadString(IDS_STRING_OBAVEZAN_ODABIR_PRIMKE);
+		MessageBox(s);
+	}
+	else
+	{
+		while (pos)
+		{
+			int nItem = ListCtrl.GetNextSelectedItem(pos);
+			m_primkaID = ListCtrl.GetItemText(nItem, 0);
+			m_datum = ListCtrl.GetItemText(nItem, 1);
+			m_nazivKlijenta = ListCtrl.GetItemText(nItem, 2);
+			m_brojRacuna = ListCtrl.GetItemText(nItem, 3);
+		}
+
+		
+		dlgUrediPrimku.DoModal();
+	
+	}
 }
