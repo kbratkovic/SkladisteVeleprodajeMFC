@@ -81,6 +81,9 @@
     <ClInclude Include="DlgUrediArtikl.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="StavkePrimkeSet.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SkladisteVeleprodaje.cpp">
@@ -138,6 +141,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="DlgUrediArtikl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StavkePrimkeSet.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

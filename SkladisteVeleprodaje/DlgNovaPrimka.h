@@ -11,7 +11,7 @@ public:
 	DlgNovaPrimka(CWnd* pParent = nullptr);   // standard constructor
 	virtual ~DlgNovaPrimka();
 
-// Dialog Data
+	// Dialog Data
 #ifdef AFX_DESIGN_TIME
 	enum { IDD = IDD_PODACI_O_PRIMKAMA_NOVI_PODATAK };
 #endif
@@ -45,4 +45,5 @@ public:
 	double m_vpc;
 
 	long rb = 0;
+	long brojPrimke;
 };

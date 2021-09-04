@@ -9,6 +9,7 @@
 #include "DlgOdaberiKlijenta.h"
 #include "PrimkeSet.h"
 #include "ArtikliSet.h"
+#include "StavkePrimkeSet.h"
 
 
 // DlgNovaPrimka dialog
@@ -19,7 +20,7 @@ DlgNovaPrimka::DlgNovaPrimka(CWnd* pParent /*=nullptr*/)
 	: CDialogEx(IDD_PODACI_O_PRIMKAMA_NOVI_PODATAK, pParent)
 	, m_brojRacuna(_T(""))
 {
-	
+
 }
 
 DlgNovaPrimka::~DlgNovaPrimka()
@@ -165,6 +166,7 @@ void DlgNovaPrimka::OnBnClickedSpremi()
 	{
 		PrimkeSet RecSetPrimke;
 		long iduciID = 1;
+
 		CTime datum = CTime::GetCurrentTime();
 
 		if (!RecSetPrimke.IsOpen())
@@ -186,23 +188,33 @@ void DlgNovaPrimka::OnBnClickedSpremi()
 
 		RecSetPrimke.Update();
 		RecSetPrimke.Close();
-		
 
 
 		ArtikliSet RecSetArtikli;
+		StavkePrimkeSet RecSetStavkePrimke;
 
 		if (!RecSetArtikli.IsOpen())
 		{
 			RecSetArtikli.Open();
 		}
 
+		if (!RecSetStavkePrimke.IsOpen())
+		{
+			RecSetStavkePrimke.Open();
+		}
+
 		for (int i = 0; i < ListCtrl.GetItemCount(); i++)
 		{
 			CString sifraCListCtrl = ListCtrl.GetItemText(i, 1);
+			CString nazivCListCtrl = ListCtrl.GetItemText(i, 2);
 			CString kolicinaCListCtrl = ListCtrl.GetItemText(i, 3);
+			CString fakturnaCijenaCListCtrl = ListCtrl.GetItemText(i, 4);
+			CString nabavnaCijenaCListCtrl = ListCtrl.GetItemText(i, 5);
 			CString prodajnaCijenaCListCtrl = ListCtrl.GetItemText(i, 6);
 
 			long longKolicinaCListCtrl = _wtol(kolicinaCListCtrl);
+			double doubleFakturnaCijenaCListCtrl = _wtof(fakturnaCijenaCListCtrl);
+			double doubleNabavnaCijenaCListCtrl = _wtof(nabavnaCijenaCListCtrl);
 			double doubleProdajnaCijenaCListCtrl = _wtof(prodajnaCijenaCListCtrl);
 
 			while (!RecSetArtikli.IsBOF() && !RecSetArtikli.IsEOF())
@@ -217,8 +229,22 @@ void DlgNovaPrimka::OnBnClickedSpremi()
 				RecSetArtikli.MoveNext();
 			}
 			RecSetArtikli.MoveFirst();
+
+
+			RecSetStavkePrimke.AddNew();
+
+			RecSetStavkePrimke.m_brojPrimke = iduciID;
+			RecSetStavkePrimke.m_sifra = sifraCListCtrl;
+			RecSetStavkePrimke.m_nazivArtikla = nazivCListCtrl;
+			RecSetStavkePrimke.m_kolicina = longKolicinaCListCtrl;
+			RecSetStavkePrimke.m_fakturnaCijena = doubleFakturnaCijenaCListCtrl;
+			RecSetStavkePrimke.m_nabavnaCijena = doubleNabavnaCijenaCListCtrl;
+			RecSetStavkePrimke.m_prodajnaCijena = doubleProdajnaCijenaCListCtrl;
+
+			RecSetStavkePrimke.Update();
 		}
 		RecSetArtikli.Close();
+		RecSetStavkePrimke.Close();
 		EndDialog(IDOK);
 	}
 	else
@@ -227,5 +253,4 @@ void DlgNovaPrimka::OnBnClickedSpremi()
 		s.LoadString(IDS_STRING_OBAVEZAN_UNOS_PODATAKA);
 		MessageBox(s);
 	}
-
 }
