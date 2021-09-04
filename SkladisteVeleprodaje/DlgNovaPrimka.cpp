@@ -17,6 +17,7 @@ IMPLEMENT_DYNAMIC(DlgNovaPrimka, CDialogEx)
 
 DlgNovaPrimka::DlgNovaPrimka(CWnd* pParent /*=nullptr*/)
 	: CDialogEx(IDD_PODACI_O_PRIMKAMA_NOVI_PODATAK, pParent)
+	, m_brojRacuna(_T(""))
 {
 	
 }
@@ -33,6 +34,8 @@ void DlgNovaPrimka::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_EDIT_KLIJENT, m_nazivKlijenta);
 	DDX_Control(pDX, IDC_EDIT_BROJ_PRIMKE, m_edit_rbPrimke);
 	DDX_Control(pDX, IDC_LIST1, ListCtrl);
+	DDX_Text(pDX, IDC_EDIT_BROJ_RACUNA, m_brojRacuna);
+	DDX_Control(pDX, IDC_EDIT_BROJ_RACUNA, m_edit_brojRacuna);
 }
 
 
@@ -156,7 +159,9 @@ void DlgNovaPrimka::OnBnClickedDodajNovi()
 
 void DlgNovaPrimka::OnBnClickedSpremi()
 {
-	if (!m_nazivKlijenta.IsEmpty() && ListCtrl.GetItemCount() != 0)
+	m_edit_brojRacuna.GetWindowText(m_brojRacuna);
+
+	if (!m_nazivKlijenta.IsEmpty() && !m_brojRacuna.IsEmpty() && ListCtrl.GetItemCount() != 0)
 	{
 		PrimkeSet RecSetPrimke;
 		long iduciID = 1;
@@ -177,6 +182,7 @@ void DlgNovaPrimka::OnBnClickedSpremi()
 		RecSetPrimke.m_rb = iduciID;
 		RecSetPrimke.m_datum = datum;
 		RecSetPrimke.m_nazivKlijenta = m_nazivKlijenta;
+		RecSetPrimke.m_brojRacuna = m_brojRacuna;
 
 		RecSetPrimke.Update();
 		RecSetPrimke.Close();

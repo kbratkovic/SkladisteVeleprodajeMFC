@@ -22,6 +22,7 @@ public:
 	long m_rb;
 	CTime m_datum;
 	CString m_nazivKlijenta;
+	CString m_brojRacuna;
 
 	// Overrides
 		// Wizard generated virtual function overrides

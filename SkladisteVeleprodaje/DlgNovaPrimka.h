@@ -24,17 +24,20 @@ public:
 	virtual BOOL OnInitDialog();
 	afx_msg void OnBnClickedDodajNovi();
 	afx_msg void OnBnClickedOdaberiKlijenta();
+	afx_msg void OnBnClickedSpremi();
 	CListCtrl ListCtrl;
 	CEdit m_edit_datum;
 	CString m_datum;
 	CEdit m_edit_nazivKlijenta;
 	CString m_nazivKlijenta;
 	CEdit m_edit_rbPrimke;
+	CEdit m_edit_brojRacuna;
+	CString m_brojRacuna;
 
 	CString m_artiklSifra;
 	CString m_artiklSifraIzCListCtrl;
 	CString m_artiklNaziv;
-	//CString m_artiklNazivZaRecSet;
+
 	long m_kolicina;
 	double m_rabat;
 	double m_fakturnaCijena;
@@ -42,5 +45,4 @@ public:
 	double m_vpc;
 
 	long rb = 0;
-	afx_msg void OnBnClickedSpremi();
 };

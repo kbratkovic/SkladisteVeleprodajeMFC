@@ -67,9 +67,11 @@ void DlgPrimke::PrikaziListu()
 	s.LoadString(IDS_STRING_ID);
 	ListCtrl.InsertColumn(1, s, LVCFMT_LEFT, 60);
 	s.LoadString(IDS_STRING_DATUM);
-	ListCtrl.InsertColumn(2, s, LVCFMT_CENTER, 200);
+	ListCtrl.InsertColumn(2, s, LVCFMT_CENTER, 150);
 	s.LoadString(IDS_STRING_NAZIV_KLIJENTA);
-	ListCtrl.InsertColumn(3, s, LVCFMT_CENTER, 350);
+	ListCtrl.InsertColumn(3, s, LVCFMT_CENTER, 300);
+	s.LoadString(IDS_STRING_BROJ_RACUNA);
+	ListCtrl.InsertColumn(3, s, LVCFMT_CENTER, 200);
 }
 
 
@@ -90,6 +92,7 @@ void DlgPrimke::PrikaziPrimke()
 		ListCtrl.InsertItem(index, s);
 		ListCtrl.SetItemText(index, 1, sDatum);
 		ListCtrl.SetItemText(index, 2, RcSetPrimke.m_nazivKlijenta);
+		ListCtrl.SetItemText(index, 3, RcSetPrimke.m_brojRacuna);
 
 		RcSetPrimke.MoveNext();
 	}

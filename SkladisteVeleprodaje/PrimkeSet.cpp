@@ -14,7 +14,8 @@ PrimkeSet::PrimkeSet(CDatabase* pdb) : CRecordset(pdb)
 	long m_rb = 0;
 	CTime m_datum;
 	CString m_nazivKlijenta = _T("");
-	m_nFields = 3;
+	CString m_brojRacuna = _T("");
+	m_nFields = 4;
 	m_nDefaultType = dynaset;
 }
 
@@ -35,6 +36,7 @@ void PrimkeSet::DoFieldExchange(CFieldExchange* pFX)
 	RFX_Long(pFX, _T("[primkaID]"), m_rb);
 	RFX_Date(pFX, _T("[datum]"), m_datum);
 	RFX_Text(pFX, _T("[nazivKlijenta]"), m_nazivKlijenta);
+	RFX_Text(pFX, _T("[brojRacuna]"), m_brojRacuna);
 
 }
 /////////////////////////////////////////////////////////////////////////////
