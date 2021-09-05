@@ -22,4 +22,14 @@ protected:
 	DECLARE_MESSAGE_MAP()
 public:
 	virtual BOOL OnInitDialog();
+	afx_msg void OnBnClickedOdaberiKlijenta();
+	
+	long rb = 0;
+	CString m_primkaID;
+	CString m_datum;
+	CString m_nazivKlijenta;
+	CString m_brojRacuna;
+	CListCtrl ListCtrl;
+	void PrikaziListu();
+	void PrikaziArtikle();
 };
