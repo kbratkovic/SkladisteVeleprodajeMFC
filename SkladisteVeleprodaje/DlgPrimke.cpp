@@ -106,6 +106,7 @@ void DlgPrimke::PrikaziPrimke()
 
 void DlgPrimke::OnBnClickedUrediPrimku()
 {
+
 	DlgUrediPrimku dlgUrediPrimku;
 	CString s;
 
@@ -131,6 +132,7 @@ void DlgPrimke::OnBnClickedUrediPrimku()
 		dlgUrediPrimku.m_nazivKlijenta = m_nazivKlijenta;
 		dlgUrediPrimku.m_brojRacuna = m_brojRacuna;
 		dlgUrediPrimku.DoModal();
-	
 	}
+	ListCtrl.DeleteAllItems();
+	PrikaziPrimke();
 }
