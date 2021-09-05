@@ -32,4 +32,17 @@ public:
 	CListCtrl ListCtrl;
 	void PrikaziListu();
 	void PrikaziArtikle();
+	afx_msg void OnBnClickedDodajNoviArtikl();
+	afx_msg void OnBnClickedSpremi();
+
+	CString m_artiklSifra;
+	CString m_artiklSifraIzCListCtrl;
+	CString m_artiklNaziv;
+
+	long m_kolicina;
+	double m_rabat;
+	double m_fakturnaCijena;
+	double m_nabavnaCijena;
+	double m_vpc;
+	int brojClanovaListeOnInitDialog = 0;
 };
