@@ -17,7 +17,7 @@ KlijentiSet::KlijentiSet(CDatabase* pdb) : CRecordset(pdb)
 
 CString KlijentiSet::GetDefaultConnect()
 {
-	return _T("DSN=db;");
+	return _T("DSN=skladiste;");
 }
 
 CString KlijentiSet::GetDefaultSQL()

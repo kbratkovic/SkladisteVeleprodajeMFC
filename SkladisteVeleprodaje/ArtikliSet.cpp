@@ -23,7 +23,7 @@ ArtikliSet::ArtikliSet(CDatabase* pdb) : CRecordset(pdb)
 
 CString ArtikliSet::GetDefaultConnect()
 {
-	return _T("DSN=db;");
+	return _T("DSN=skladiste;");
 }
 
 CString ArtikliSet::GetDefaultSQL()

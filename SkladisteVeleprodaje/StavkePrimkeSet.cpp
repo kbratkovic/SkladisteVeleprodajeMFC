@@ -24,7 +24,7 @@ StavkePrimkeSet::StavkePrimkeSet(CDatabase* pdb) : CRecordset(pdb)
 
 CString StavkePrimkeSet::GetDefaultConnect()
 {
-	return _T("DSN=db;");
+	return _T("DSN=skladiste;");
 }
 
 CString StavkePrimkeSet::GetDefaultSQL()
