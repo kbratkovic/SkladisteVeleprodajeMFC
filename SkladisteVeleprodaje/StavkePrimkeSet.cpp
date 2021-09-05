@@ -11,7 +11,7 @@ IMPLEMENT_DYNAMIC(StavkePrimkeSet, CRecordset)
 
 StavkePrimkeSet::StavkePrimkeSet(CDatabase* pdb) : CRecordset(pdb)
 {
-	long m_brojPrimke = 0;
+	long m_primkaID = 0;
 	CString m_sifra = _T("");
 	CString m_nazivArtikla = _T("");
 	long m_kolicina = 0;
@@ -36,7 +36,7 @@ void StavkePrimkeSet::DoFieldExchange(CFieldExchange* pFX)
 {
 	pFX->SetFieldType(CFieldExchange::outputColumn);
 
-	RFX_Long(pFX, _T("[primkaID]"), m_brojPrimke);
+	RFX_Long(pFX, _T("[primkaID]"), m_primkaID);
 	RFX_Text(pFX, _T("[sifra]"), m_sifra);
 	RFX_Text(pFX, _T("[nazivArtikla]"), m_nazivArtikla);
 	RFX_Long(pFX, _T("[kolicina]"), m_kolicina);

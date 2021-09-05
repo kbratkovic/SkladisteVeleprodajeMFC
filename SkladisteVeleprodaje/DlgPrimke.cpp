@@ -66,8 +66,8 @@ void DlgPrimke::PrikaziListu()
 {
 	CString s;
 
-	s.LoadString(IDS_STRING_ID);
-	ListCtrl.InsertColumn(1, s, LVCFMT_LEFT, 60);
+	s.LoadString(IDS_STRING_BROJ_PRIMKE);
+	ListCtrl.InsertColumn(1, s, LVCFMT_LEFT, 100);
 	s.LoadString(IDS_STRING_DATUM);
 	ListCtrl.InsertColumn(2, s, LVCFMT_CENTER, 150);
 	s.LoadString(IDS_STRING_NAZIV_KLIJENTA);
@@ -126,7 +126,10 @@ void DlgPrimke::OnBnClickedUrediPrimku()
 			m_brojRacuna = ListCtrl.GetItemText(nItem, 3);
 		}
 
-		
+		dlgUrediPrimku.m_primkaID = m_primkaID;
+		dlgUrediPrimku.m_datum = m_datum;
+		dlgUrediPrimku.m_nazivKlijenta = m_nazivKlijenta;
+		dlgUrediPrimku.m_brojRacuna = m_brojRacuna;
 		dlgUrediPrimku.DoModal();
 	
 	}

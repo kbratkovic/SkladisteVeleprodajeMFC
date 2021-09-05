@@ -19,7 +19,7 @@ public:
 	// (Note: You must use an ODBC driver version that is version 3.5 or greater
 	// to support both Unicode and these conversions).
 
-	long m_brojPrimke;
+	long m_primkaID;
 	CString m_sifra;
 	CString m_nazivArtikla;
 	long m_kolicina;

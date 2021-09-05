@@ -233,7 +233,7 @@ void DlgNovaPrimka::OnBnClickedSpremi()
 
 			RecSetStavkePrimke.AddNew();
 
-			RecSetStavkePrimke.m_brojPrimke = iduciID;
+			RecSetStavkePrimke.m_primkaID = iduciID;
 			RecSetStavkePrimke.m_sifra = sifraCListCtrl;
 			RecSetStavkePrimke.m_nazivArtikla = nazivCListCtrl;
 			RecSetStavkePrimke.m_kolicina = longKolicinaCListCtrl;
