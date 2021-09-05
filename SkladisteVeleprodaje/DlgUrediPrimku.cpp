@@ -8,6 +8,7 @@
 #include "DlgOdaberiKlijenta.h"
 #include "StavkePrimkeSet.h"
 #include "ArtikliSet.h"
+#include "PrimkeSet.h"
 #include "DlgStavkeNoviPodatak.h"
 
 
@@ -37,6 +38,8 @@ void DlgUrediPrimku::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_EDIT_KLIJENT, m_nazivKlijenta);
 	DDX_Text(pDX, IDC_EDIT_BROJ_RACUNA, m_brojRacuna);
 	DDX_Control(pDX, IDC_LIST1, ListCtrl);
+	DDX_Control(pDX, IDC_EDIT_BROJ_RACUNA, m_edit_brojRacuna);
+	DDX_Control(pDX, IDC_EDIT_KLIJENT, m_edit_nazivKlijenta);
 }
 
 
@@ -57,9 +60,6 @@ BOOL DlgUrediPrimku::OnInitDialog()
 	PrikaziListu();
 	PrikaziArtikle();
 	brojClanovaListeOnInitDialog = ListCtrl.GetItemCount();
-	CString s;
-	s.Format(_T("%d"), brojClanovaListeOnInitDialog);
-	MessageBox(s);
 
 	return TRUE;  // return TRUE unless you set the focus to a control
 				  // EXCEPTION: OCX Property Pages should return FALSE
@@ -179,60 +179,107 @@ void DlgUrediPrimku::OnBnClickedDodajNoviArtikl()
 
 void DlgUrediPrimku::OnBnClickedSpremi()
 {
-	ArtikliSet RecSetArtikli;
-	StavkePrimkeSet RecSetStavkePrimke;
-
+	m_edit_nazivKlijenta.GetWindowText(m_nazivKlijenta);
+	m_edit_brojRacuna.GetWindowText(m_brojRacuna);
 	long primkaID = _wtol(m_primkaID);
 
-	if (!RecSetArtikli.IsOpen())
-	{
-		RecSetArtikli.Open();
-	}
+	ArtikliSet RecSetArtikli;
+	PrimkeSet RecSetPrimke;
+	StavkePrimkeSet RecSetStavkePrimke;
 
-	if (!RecSetStavkePrimke.IsOpen())
+	if (!m_brojRacuna.IsEmpty())
 	{
-		RecSetStavkePrimke.Open();
-	}
-	
-	for (int i = brojClanovaListeOnInitDialog; i < ListCtrl.GetItemCount(); i++)
-	{
-		CString sifraCListCtrl = ListCtrl.GetItemText(i, 1);
-		CString nazivCListCtrl = ListCtrl.GetItemText(i, 2);
-		CString kolicinaCListCtrl = ListCtrl.GetItemText(i, 3);
-		CString fakturnaCijenaCListCtrl = ListCtrl.GetItemText(i, 4);
-		CString nabavnaCijenaCListCtrl = ListCtrl.GetItemText(i, 5);
-		CString prodajnaCijenaCListCtrl = ListCtrl.GetItemText(i, 6);
-
-		long longKolicinaCListCtrl = _wtol(kolicinaCListCtrl);
-		double doubleFakturnaCijenaCListCtrl = _wtof(fakturnaCijenaCListCtrl);
-		double doubleNabavnaCijenaCListCtrl = _wtof(nabavnaCijenaCListCtrl);
-		double doubleProdajnaCijenaCListCtrl = _wtof(prodajnaCijenaCListCtrl);
-
-		while (!RecSetArtikli.IsBOF() && !RecSetArtikli.IsEOF())
+		if (!RecSetPrimke.IsOpen())
 		{
-			if (sifraCListCtrl == RecSetArtikli.m_sifra)
-			{
-				RecSetArtikli.Edit();
-				RecSetArtikli.m_stanje += longKolicinaCListCtrl;
-				RecSetArtikli.m_cijena = doubleProdajnaCijenaCListCtrl;
-				RecSetArtikli.Update();
-			}
-			RecSetArtikli.MoveNext();
+			RecSetPrimke.Open();
 		}
-		RecSetArtikli.MoveFirst();
+
+		while (!RecSetPrimke.IsBOF() && !RecSetPrimke.IsEOF())
+		{
+			if (primkaID == RecSetPrimke.m_rb)
+			{
+				if ((m_nazivKlijenta != RecSetPrimke.m_nazivKlijenta) && (m_brojRacuna != RecSetPrimke.m_brojRacuna))
+				{
+					RecSetPrimke.Edit();
+					RecSetPrimke.m_nazivKlijenta = m_nazivKlijenta;
+					RecSetPrimke.m_brojRacuna = m_brojRacuna;
+					RecSetPrimke.Update();
+				}
+				else if (m_brojRacuna != RecSetPrimke.m_brojRacuna)
+				{
+					RecSetPrimke.Edit();
+					RecSetPrimke.m_brojRacuna = m_brojRacuna;
+					RecSetPrimke.Update();
+				}
+				else if (m_nazivKlijenta != RecSetPrimke.m_nazivKlijenta)
+				{
+					RecSetPrimke.Edit();
+					RecSetPrimke.m_nazivKlijenta = m_nazivKlijenta;
+					RecSetPrimke.Update();
+				}
+			}
+			RecSetPrimke.MoveNext();
+		}
+		RecSetPrimke.MoveFirst();
+		RecSetPrimke.Close();
 
 
-		RecSetStavkePrimke.AddNew();
-		RecSetStavkePrimke.m_primkaID = primkaID;
-		RecSetStavkePrimke.m_sifra = sifraCListCtrl;
-		RecSetStavkePrimke.m_nazivArtikla = nazivCListCtrl;
-		RecSetStavkePrimke.m_kolicina = longKolicinaCListCtrl;
-		RecSetStavkePrimke.m_fakturnaCijena = doubleFakturnaCijenaCListCtrl;
-		RecSetStavkePrimke.m_nabavnaCijena = doubleNabavnaCijenaCListCtrl;
-		RecSetStavkePrimke.m_prodajnaCijena = doubleProdajnaCijenaCListCtrl;
-		RecSetStavkePrimke.Update();		
+		if (!RecSetArtikli.IsOpen())
+		{
+			RecSetArtikli.Open();
+		}
+
+		if (!RecSetStavkePrimke.IsOpen())
+		{
+			RecSetStavkePrimke.Open();
+		}
+	
+		for (int i = brojClanovaListeOnInitDialog; i < ListCtrl.GetItemCount(); i++)
+		{
+			CString sifraCListCtrl = ListCtrl.GetItemText(i, 1);
+			CString nazivCListCtrl = ListCtrl.GetItemText(i, 2);
+			CString kolicinaCListCtrl = ListCtrl.GetItemText(i, 3);
+			CString fakturnaCijenaCListCtrl = ListCtrl.GetItemText(i, 4);
+			CString nabavnaCijenaCListCtrl = ListCtrl.GetItemText(i, 5);
+			CString prodajnaCijenaCListCtrl = ListCtrl.GetItemText(i, 6);
+
+			long longKolicinaCListCtrl = _wtol(kolicinaCListCtrl);
+			double doubleFakturnaCijenaCListCtrl = _wtof(fakturnaCijenaCListCtrl);
+			double doubleNabavnaCijenaCListCtrl = _wtof(nabavnaCijenaCListCtrl);
+			double doubleProdajnaCijenaCListCtrl = _wtof(prodajnaCijenaCListCtrl);
+
+			while (!RecSetArtikli.IsBOF() && !RecSetArtikli.IsEOF())
+			{
+				if (sifraCListCtrl == RecSetArtikli.m_sifra)
+				{
+					RecSetArtikli.Edit();
+					RecSetArtikli.m_stanje += longKolicinaCListCtrl;
+					RecSetArtikli.m_cijena = doubleProdajnaCijenaCListCtrl;
+					RecSetArtikli.Update();
+				}
+				RecSetArtikli.MoveNext();
+			}
+			RecSetArtikli.MoveFirst();
+
+
+			RecSetStavkePrimke.AddNew();
+			RecSetStavkePrimke.m_primkaID = primkaID;
+			RecSetStavkePrimke.m_sifra = sifraCListCtrl;
+			RecSetStavkePrimke.m_nazivArtikla = nazivCListCtrl;
+			RecSetStavkePrimke.m_kolicina = longKolicinaCListCtrl;
+			RecSetStavkePrimke.m_fakturnaCijena = doubleFakturnaCijenaCListCtrl;
+			RecSetStavkePrimke.m_nabavnaCijena = doubleNabavnaCijenaCListCtrl;
+			RecSetStavkePrimke.m_prodajnaCijena = doubleProdajnaCijenaCListCtrl;
+			RecSetStavkePrimke.Update();
+		}
+		RecSetArtikli.Close();
+		RecSetStavkePrimke.Close();
+		EndDialog(IDOK);
 	}
-	RecSetArtikli.Close();
-	RecSetStavkePrimke.Close();
-	EndDialog(IDOK);
+	else
+	{
+		CString s;
+		s.LoadString(IDS_STRING_OBAVEZAN_UNOS_PODATAKA);
+		MessageBox(s);
+	}
 }

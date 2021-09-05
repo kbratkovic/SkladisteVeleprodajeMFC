@@ -23,17 +23,19 @@ protected:
 public:
 	virtual BOOL OnInitDialog();
 	afx_msg void OnBnClickedOdaberiKlijenta();
-	
-	long rb = 0;
-	CString m_primkaID;
-	CString m_datum;
-	CString m_nazivKlijenta;
-	CString m_brojRacuna;
-	CListCtrl ListCtrl;
-	void PrikaziListu();
-	void PrikaziArtikle();
 	afx_msg void OnBnClickedDodajNoviArtikl();
 	afx_msg void OnBnClickedSpremi();
+	void PrikaziListu();
+	void PrikaziArtikle();
+	
+	long rb = 0;
+	CEdit m_edit_brojRacuna;
+	CString m_brojRacuna;
+	CEdit m_edit_nazivKlijenta;
+	CString m_nazivKlijenta;
+	CString m_primkaID;
+	CString m_datum;
+	CListCtrl ListCtrl;
 
 	CString m_artiklSifra;
 	CString m_artiklSifraIzCListCtrl;
