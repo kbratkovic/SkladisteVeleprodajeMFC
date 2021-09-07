@@ -99,8 +99,8 @@ void DlgKlijenti::PrikaziKlijente()
 void DlgKlijenti::OnBnClickedDodajNovogKlijenta()
 {
 	DlgNoviKlijent dlgNoviKlijent;
-	ListCtrl.DeleteAllItems();
 	dlgNoviKlijent.DoModal();
+	ListCtrl.DeleteAllItems();
 	PrikaziKlijente();
 }
 
@@ -132,8 +132,8 @@ void DlgKlijenti::OnBnClickedUrediKlijenta()
 		dlgUrediKlijenta.m_adresa = m_adresa;
 		dlgUrediKlijenta.m_telefon = m_telefon;
 
-		ListCtrl.DeleteAllItems();
 		dlgUrediKlijenta.DoModal();
+		ListCtrl.DeleteAllItems();
 		PrikaziKlijente();
 	}
 }

@@ -102,8 +102,8 @@ void DlgArtikli::OnBnClickedDodajNoviArtikl()
 {
 	DlgNoviArtikl dlgNoviArtikl;
 
-	ListCtrl.DeleteAllItems();
 	dlgNoviArtikl.DoModal();
+	ListCtrl.DeleteAllItems();
 	PrikaziArtikle();
 }
 
@@ -135,8 +135,8 @@ void DlgArtikli::OnBnClickedUrediArtikl()
 		dlgUrediArtikl.m_mjera = m_mjera;
 		dlgUrediArtikl.m_cijena = m_cijena;
 
-		ListCtrl.DeleteAllItems();
 		dlgUrediArtikl.DoModal();
+		ListCtrl.DeleteAllItems();
 		PrikaziArtikle();
 	}
 }
